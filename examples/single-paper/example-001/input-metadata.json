@@ -1,0 +1,15 @@
+{
+  "title": "Example Paper Title",
+  "authors": [
+    "Author One",
+    "Author Two"
+  ],
+  "venue": "Example Venue",
+  "year": 2025,
+  "doi_or_url": "https://example.org/paper",
+  "source_type": "pdf",
+  "parsed_from": "local-pdf",
+  "ingestion_timestamp": "2026-03-23T00:00:00Z",
+  "arxiv_id": "2501.00001",
+  "version": "v1"
+}
