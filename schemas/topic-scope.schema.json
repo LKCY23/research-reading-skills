@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TopicScope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "topic",
+    "research_question",
+    "scope_summary",
+    "inclusion_criteria",
+    "exclusion_criteria",
+    "initial_comparison_axes",
+    "known_scope_risks",
+    "seed_paper_rationale"
+  ],
+  "properties": {
+    "topic": {
+      "type": "string"
+    },
+    "research_question": {
+      "type": "string"
+    },
+    "scope_summary": {
+      "type": "string"
+    },
+    "inclusion_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclusion_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "initial_comparison_axes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_scope_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "seed_paper_rationale": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

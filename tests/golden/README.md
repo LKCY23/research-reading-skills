@@ -2,37 +2,45 @@
 
 This directory is reserved for golden-example validation.
 
-## Current quasi-golden baseline
+## Current quasi-golden baselines
 
 `examples/single-paper/example-001/` is the current Layer 1 quasi-golden baseline.
+
+`examples/literature-review/example-001/` is the current Layer 2 quasi-golden baseline.
 
 This means future checks should first ask:
 - Are the expected files present?
 - Are the JSON artifacts syntactically valid?
-- Does `paper-card.json` stay consistent with the sub-artifacts?
-- Does `paper-card.md` still reflect the structured artifacts faithfully?
+- Do aggregate artifacts stay consistent with their sub-artifacts?
+- Do rendered markdown files still reflect the structured artifacts faithfully?
 
 ## Highest-priority artifact checks
 
 Start with:
-- `claim-evidence-table.json`
-- `limitations-card.json`
-- `repro-notes.json`
-- `critical-read-notes.json`
+- Layer 1 `claim-evidence-table.json`
+- Layer 1 `limitations-card.json`
+- Layer 1 `repro-notes.json`
+- Layer 1 `critical-read-notes.json`
+- Layer 2 `topic-scope.json`
+- Layer 2 `paper-set.json`
+- Layer 2 `comparison-matrix.json`
+- Layer 2 `literature-review.json`
 
 These are the most valuable early outputs to stabilize.
 
 ## Executable checks
 
-Current executable check:
+Current executable checks:
 - `tests/bin/check-example-001-completeness.sh`
+- `tests/bin/check-literature-review-example-001-completeness.sh`
 
 Run:
 ```bash
 bash tests/bin/check-example-001-completeness.sh
+bash tests/bin/check-literature-review-example-001-completeness.sh
 ```
 
-This verifies that the required `example-001` files exist.
+These verify that the required quasi-golden example files exist.
 
 ## Expansion path
 

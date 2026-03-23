@@ -248,8 +248,10 @@ paper-read-skills/
     repro-notes.schema.json
     critical-read-notes.schema.json
     project-relevance.schema.json
-    literature-review.schema.json
+    topic-scope.schema.json
+    paper-set.schema.json
     comparison-matrix.schema.json
+    literature-review.schema.json
   templates/
     paper-card.md
     literature-review.md
@@ -472,6 +474,8 @@ Its role is to:
 - topic statement or research question
 - seed papers (titles, local files, URLs, or pre-existing paper cards)
 
+The topic-first Layer 2 scaffold assumes the user provides `topic + research_question + seed_papers`, with optional existing Layer 1 artifacts when available.
+
 ### Light retrieval support allowed
 - manual related-paper lists
 - optional prompts for likely neighboring work
@@ -499,11 +503,19 @@ Suggested outputs:
 
 ### Stage B: Single-paper normalization
 Purpose:
-- convert each seed paper into a common representation
+- represent the current paper set in a common structure
 - reuse Layer 1 outputs whenever possible
+- keep coverage-state boundaries explicit
 
 Output:
-- list of normalized `paper_card`s
+- `paper_set`
+
+Coverage states:
+- `seed_only`
+- `partial_layer1`
+- `full_layer1`
+
+Layer 2 may identify papers needing deeper Layer 1 reads, but it does not perform those reads in v1.
 
 ### Stage C: Comparison matrix generation
 Purpose:
@@ -528,12 +540,11 @@ Purpose:
 
 Suggested outputs:
 - `taxonomy`
-- `consensus_points`
-- `disagreement_points`
-- `methodological_trends`
-- `evaluation_gaps`
-- `open_questions`
+- `evidence_patterns`
+- `gaps_and_disagreements`
 - `recommended_reading_order`
+- `review_limits`
+- `next_actions`
 
 ---
 
@@ -592,6 +603,8 @@ They allow us to:
 - `repro-notes.schema.json`
 - `critical-read-notes.schema.json`
 - `project-relevance.schema.json`
+- `topic-scope.schema.json`
+- `paper-set.schema.json`
 - `comparison-matrix.schema.json`
 - `literature-review.schema.json`
 
@@ -661,8 +674,17 @@ Testing should focus on output quality, structure, and grounding.
 ### Schema validation tests
 Ensure prompt outputs can be validated against required schemas.
 
+Current executable validation surface:
+- `bash tests/bin/validate-json.sh`
+- `bash tests/bin/check-example-001-completeness.sh`
+- `bash tests/bin/check-literature-review-example-001-completeness.sh`
+
 ### Golden example tests
 Use a small fixed set of known papers and expected structured outputs.
+
+Current scaffold anchors:
+- `examples/single-paper/example-001/`
+- `examples/literature-review/example-001/`
 
 ### Prompt regression tests
 Check that prompt changes do not remove key output sections or degrade evidence behavior.
@@ -732,14 +754,16 @@ Success criteria:
 ## 17.2 MVP Phase 2: Topic review on top of paper cards
 Deliver:
 - `literature-review` skill scaffold
-- topic scoping prompt
-- comparison matrix schema and template
+- topic-scope prompt
+- paper-set coverage-state scaffold
+- comparison-matrix schema and template
 - synthesis prompt
 - examples using 3-5 seed papers
 
 Success criteria:
 - review layer consumes normalized single-paper artifacts
 - output is a real comparison, not concatenated summaries
+- `seed_only`, `partial_layer1`, and `full_layer1` stay explicit
 - gaps and disagreements are specific enough to discuss
 
 ## 17.3 MVP Phase 3: Retrieval-adjacent extension

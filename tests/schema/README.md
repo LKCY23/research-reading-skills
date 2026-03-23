@@ -6,23 +6,21 @@ This directory is reserved for schema-level validation.
 
 At minimum, schema validation should check:
 - every schema file is valid JSON
-- `paper-card.schema.json` references valid local schema files
+- aggregate schemas reference valid local schema files
 - example artifacts can be checked against their intended schema later
 
-## Current baseline target
+## Current baseline targets
 
-The first concrete validation target is `examples/single-paper/example-001/`.
+The first concrete validation targets are:
+- `examples/single-paper/example-001/`
+- `examples/literature-review/example-001/`
 
 Priority files:
-- `artifacts/quick-pass.json`
-- `artifacts/method-card.json`
-- `artifacts/experiment-card.json`
-- `artifacts/claim-evidence-table.json`
-- `artifacts/limitations-card.json`
-- `artifacts/repro-notes.json`
-- `artifacts/critical-read-notes.json`
-- `artifacts/project-relevance.json`
-- `artifacts/paper-card.json`
+- Layer 1 aggregate and sub-artifacts under `examples/single-paper/example-001/artifacts/`
+- Layer 2 `topic-scope.json`
+- Layer 2 `paper-set.json`
+- Layer 2 `comparison-matrix.json`
+- Layer 2 `literature-review.json`
 
 ## Executable checks
 
@@ -34,7 +32,7 @@ Run:
 bash tests/bin/validate-json.sh
 ```
 
-This validates JSON syntax for the current Layer 1 schemas and the `example-001` JSON artifacts.
+This validates JSON syntax for the current Layer 1 and Layer 2 schemas plus the tracked example JSON artifacts.
 
 ## Future direction
 

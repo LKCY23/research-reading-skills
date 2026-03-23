@@ -85,18 +85,23 @@ Output:
 - reproducibility and critique support
 - project relevance notes
 
-### Layer 2: Topic review / literature review
+### Layer 2: Topic-first literature review
 Input:
 - a research topic
 - a research question
 - a list of seed papers
+- optional existing Layer 1 artifacts for those papers
 - later: expanded candidate lists from retrieval tools
 
 Output:
-- a topic map
-- paper cards aggregated from Layer 1
-- comparison matrix
+- a `topic_scope` artifact that defines review boundaries
+- a `paper_set` artifact with explicit coverage states per paper
+- a `comparison_matrix` artifact for cross-paper comparison
+- a canonical aggregate `literature_review` artifact built from Layer 2 sections
+- a human-readable `literature-review.md` rendering derived from the aggregate artifact
 - synthesis of common patterns, disagreements, gaps, and reading order
+
+Layer 2 is intentionally topic-first and builds on Layer 1 artifacts when they exist. In v1, Layer 2 may identify papers that need deeper Layer 1 reads, but it does not perform those missing Layer 1 reads automatically.
 
 ## What this project is not
 
@@ -164,6 +169,8 @@ paper-read-skills/
   schemas/
   templates/
   pipelines/
+    single-paper/
+    literature-review/
   examples/
   tests/
 ```
@@ -188,9 +195,10 @@ Purpose:
 Expected responsibilities:
 - scope the topic
 - define comparison axes
-- process candidate papers through single-paper outputs
-- generate a comparison matrix and synthesis
-- identify open questions and reading order
+- assemble a `paper_set` with explicit `seed_only`, `partial_layer1`, and `full_layer1` coverage states
+- use Layer 1 artifacts for grounded comparison when available
+- generate a `comparison_matrix`, aggregate `literature_review`, and `literature-review.md`
+- identify open questions, review limits, and reading order
 
 ## Key output artifacts
 
@@ -206,13 +214,11 @@ Expected responsibilities:
 - `project_relevance`
 
 ### Literature-review artifacts
-- `topic_scope`
-- `paper_set`
-- `comparison_matrix`
-- `taxonomy`
-- `evidence_patterns`
-- `gaps_and_disagreements`
-- `recommended_reading_order`
+- `topic_scope` → persisted as `topic-scope.json`
+- `paper_set` → persisted as `paper-set.json`
+- `comparison_matrix` → persisted as `comparison-matrix.json`
+- `literature_review` → persisted as `literature-review.json`
+- `literature-review.md`
 
 ## Design rules that must stay true
 

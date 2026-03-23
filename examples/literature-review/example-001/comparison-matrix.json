@@ -1,0 +1,22 @@
+{
+  "comparison_axes": [
+    "paper role in the scaffold"
+  ],
+  "paper_ids": [
+    "seed-paper-001"
+  ],
+  "cells": [
+    {
+      "paper_id": "seed-paper-001",
+      "axis": "paper role in the scaffold",
+      "summary": "Seed placeholder only; no detailed comparison claim is made.",
+      "coverage_note": "seed_only coverage"
+    }
+  ],
+  "coverage_warnings": [
+    "Comparison remains scaffold-level because the only paper is seed_only."
+  ],
+  "comparison_limits": [
+    "Do not treat this example as a completed cross-paper comparison."
+  ]
+}

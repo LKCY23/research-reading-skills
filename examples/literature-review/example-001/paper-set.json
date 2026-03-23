@@ -1,0 +1,28 @@
+{
+  "papers": [
+    {
+      "paper_id": "seed-paper-001",
+      "title": "Placeholder seed paper",
+      "authors": [
+        "Example Author"
+      ],
+      "coverage_state": "seed_only",
+      "inclusion_reason": "Included only to anchor the scaffold example",
+      "layer1_artifacts_available": [],
+      "comparison_readiness_note": "Not ready for evidence-backed comparison beyond seed metadata"
+    }
+  ],
+  "coverage_summary": [
+    "Total papers: 1",
+    "seed_only: 1",
+    "partial_layer1: 0",
+    "full_layer1: 0",
+    "This scaffold intentionally shows only seed-level coverage."
+  ],
+  "missing_layer1_artifacts": [
+    "seed-paper-001 has no Layer 1 paper_card artifacts yet"
+  ],
+  "papers_needing_deeper_read": [
+    "seed-paper-001"
+  ]
+}

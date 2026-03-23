@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PaperSet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "papers",
+    "coverage_summary",
+    "missing_layer1_artifacts",
+    "papers_needing_deeper_read"
+  ],
+  "properties": {
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paper_id",
+          "title",
+          "authors",
+          "coverage_state",
+          "inclusion_reason",
+          "layer1_artifacts_available",
+          "comparison_readiness_note"
+        ],
+        "properties": {
+          "paper_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "authors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage_state": {
+            "type": "string",
+            "enum": ["seed_only", "partial_layer1", "full_layer1"]
+          },
+          "inclusion_reason": {
+            "type": "string"
+          },
+          "layer1_artifacts_available": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "comparison_readiness_note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "coverage_summary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_layer1_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "papers_needing_deeper_read": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
