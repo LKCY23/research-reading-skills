@@ -1,0 +1,31 @@
+{
+  "required_assets": [
+    "Access to a base LLM capable of producing multiple zero-shot chain-of-thought completions.",
+    "A fragment extraction and semantic normalization pipeline for reasoning traces.",
+    "Implementation of the HUBO coefficient construction for 1-body, 2-body, and 3-body-or-higher terms.",
+    "A classical simulated annealing solver and, for the quantum path, access to BF-DCQO-capable IBM quantum hardware or an equivalent backend.",
+    "Prompt construction logic that reinjects selected reasoning fragments into the final answer-generation step."
+  ],
+  "missing_details": [
+    "The paper does not fully spell out all operational hyperparameter choices for fragment extraction, deduplication, and threshold tuning in a way that would make reproduction turnkey.",
+    "There is limited detail on how robust the results are to different chunking, embedding, or semantic-normalization choices.",
+    "The exact practical workflow for reproducing the quantum backend execution, scheduling, and run budget is not described as a step-by-step recipe."
+  ],
+  "high_risk_ambiguities": [
+    "The quality of the whole method likely depends heavily on how reasoning fragments are extracted and normalized, but this stage is only moderately detailed.",
+    "The selected-fragment threshold is important for the final reasoning subset yet appears to be a tuneable heuristic.",
+    "The fair comparability of different model backbones and reasoning-native baselines depends on serving and prompting choices that are only partially described."
+  ],
+  "first_replication_checks": [
+    "Verify that the multi-sample CoT generation and reason-fragment extraction reproduce a stable fragment pool size distribution.",
+    "Check that the computed 1-body, 2-body, and 3-body coefficients behave as described on a small controlled example.",
+    "Run the full pipeline with simulated annealing first before attempting the BF-DCQO path.",
+    "Confirm that fragment inclusion frequencies and the thresholding step reproduce the paper’s qualitative stability-ranking behavior."
+  ],
+  "expected_failure_points": [
+    "Fragment extraction and semantic deduplication may drift enough to alter the optimization landscape materially.",
+    "Reducing higher-order structure to QUBO for the classical path may fail to preserve the behavior needed to match reported trends.",
+    "Quantum runs may be difficult to reproduce because of backend access, noise, and execution-budget constraints.",
+    "Prompt re-injection may introduce variance that makes gains fragile if the selected subset is not stable."
+  ]
+}

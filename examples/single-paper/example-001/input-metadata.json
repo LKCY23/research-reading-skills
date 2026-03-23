@@ -1,15 +1,21 @@
 {
-  "title": "Example Paper Title",
+  "title": "Quantum Combinatorial Reasoning for Large Language Models",
   "authors": [
-    "Author One",
-    "Author Two"
+    "Carlos Flores-Garrigós",
+    "Gaurav Dev",
+    "Michael Falkenthal",
+    "Alejandro Gomez Cadavid",
+    "Anton Simen",
+    "Shubham Kumar",
+    "Enrique Solano",
+    "Narendra N. Hegde"
   ],
-  "venue": "Example Venue",
+  "venue": "arXiv",
   "year": 2025,
-  "doi_or_url": "https://example.org/paper",
+  "doi_or_url": "https://arxiv.org/abs/2510.24509v1",
   "source_type": "pdf",
-  "parsed_from": "local-pdf",
+  "parsed_from": "local-pdf:/Users/liyao/Desktop/Quantum Combinatorial Reasoning for Large Language Models.pdf",
   "ingestion_timestamp": "2026-03-23T00:00:00Z",
-  "arxiv_id": "2501.00001",
+  "arxiv_id": "2510.24509",
   "version": "v1"
 }

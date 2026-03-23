@@ -1,0 +1,31 @@
+{
+  "paper_type": "empirical",
+  "problem_statement": "The paper addresses the problem of how to aggregate multiple reasoning traces from large language models into a more coherent, diverse, and semantically grounded final reasoning sequence instead of relying on heuristic voting or self-consistency alone.",
+  "claimed_contributions": [
+    "Introduces QCR-LLM, a quantum combinatorial reasoning framework that reformulates reasoning aggregation as a higher-order unconstrained binary optimization (HUBO) problem.",
+    "Extends prior combinatorial reasoning formulations from pairwise QUBO interactions to higher-order interactions so multi-fragment dependencies can be modeled directly.",
+    "Implements the optimization stage with both classical simulated annealing and a quantum solver based on BF-DCQO on IBM quantum hardware.",
+    "Reports accuracy gains on BIG-Bench Extra Hard tasks across multiple LLM backbones.",
+    "Argues that the framework can improve reasoning quality while remaining more energy-efficient than reasoning-intensive baselines such as o3-high."
+  ],
+  "approach_summary": "QCR-LLM samples multiple zero-shot chain-of-thought completions, decomposes them into atomic reasoning fragments, assigns fragment-level and higher-order interaction coefficients, optimizes a HUBO energy function to select stable and coherent fragments, and then reinjects the selected subset into a final prompt to produce the answer.",
+  "primary_comparators": [
+    "base LLMs without QCR aggregation (GPT-4o, DeepSeek V1, LLaMA 3.1)",
+    "reasoning-native baselines such as o3-high and DeepSeek R1",
+    "classical simulated annealing as a solver baseline against BF-DCQO"
+  ],
+  "credibility_signals": [
+    "The paper provides a full pipeline description and an explicit algorithm summary.",
+    "Results are reported on named BIG-Bench Extra Hard tasks with tables comparing multiple baselines and backbones.",
+    "The paper includes both classical and quantum solver variants instead of presenting only a single quantum result.",
+    "The conclusion and results sections acknowledge the limits of current hardware and the modest size of current quantum gains."
+  ],
+  "uncertainty_flags": [
+    "The benchmark set is limited to three representative BBEH subsets, so generalization beyond these tasks is not established.",
+    "Quantum experiments are restricted to the best-performing GPT-4o configuration rather than all model variants.",
+    "The strongest superiority claim over reasoning-native systems appears overstated relative to the per-task table, where gains are mixed rather than uniformly dominant.",
+    "Energy accounting explicitly excludes some system-level quantum backend costs, so end-to-end efficiency comparisons remain approximate."
+  ],
+  "worth_deep_reading": true,
+  "why_read_or_skip": "Worth a deep read if you care about reasoning aggregation, combinatorial optimization for LLM reasoning, or early quantum-assisted inference workflows. It is especially useful as a systems-and-method paper, though some empirical claims should be read with care because the evaluation scope is still narrow."
+}
