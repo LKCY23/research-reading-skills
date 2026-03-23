@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CriticalReadNotes",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "major_support_gaps",
+    "fairness_of_comparisons",
+    "possible_confounds",
+    "assumption_risks",
+    "missing_evidence_that_would_change_confidence",
+    "overall_critical_take"
+  ],
+  "properties": {
+    "major_support_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fairness_of_comparisons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "possible_confounds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assumption_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_evidence_that_would_change_confidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "overall_critical_take": {
+      "type": "string"
+    }
+  }
+}

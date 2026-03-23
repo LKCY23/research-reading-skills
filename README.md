@@ -202,6 +202,7 @@ Expected responsibilities:
 - `experiment_card`
 - `limitations_card`
 - `repro_notes`
+- `critical_read_notes`
 - `project_relevance`
 
 ### Literature-review artifacts

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProjectRelevance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "relevance_to_current_topic",
+    "reusable_ideas",
+    "parts_to_ignore",
+    "what_to_read_next"
+  ],
+  "properties": {
+    "relevance_to_current_topic": {
+      "type": "string"
+    },
+    "reusable_ideas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "parts_to_ignore": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "what_to_read_next": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

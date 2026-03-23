@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReproNotes",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "required_assets",
+    "missing_details",
+    "high_risk_ambiguities",
+    "first_replication_checks",
+    "expected_failure_points"
+  ],
+  "properties": {
+    "required_assets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_details": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "high_risk_ambiguities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "first_replication_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected_failure_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
