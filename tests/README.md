@@ -11,8 +11,9 @@ This first validation layer covers:
 - prompt contract checks
 - golden-example review expectations
 - directory structure for future executable tests
+- minimal executable checks for JSON validity and example completeness
 
-It does **not** yet include a complete automated runner.
+It does **not** yet include full schema-conformance validation or a complete automated runner.
 
 ## Current quasi-golden baseline
 
@@ -43,6 +44,19 @@ Purpose:
 Purpose:
 - define what counts as a stable expected output shape for important examples
 - start with `example-001` as the baseline Layer 1 reference
+
+### `tests/bin/`
+Purpose:
+- hold minimal executable validation scripts
+- keep first-pass repository checks easy to run manually
+
+## Current executable checks
+
+Run:
+```bash
+bash tests/bin/validate-json.sh
+bash tests/bin/check-example-001-completeness.sh
+```
 
 ## Review priority
 

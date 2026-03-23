@@ -11,7 +11,7 @@ At minimum, schema validation should check:
 
 ## Current baseline target
 
-The first concrete validation target should be `examples/single-paper/example-001/`.
+The first concrete validation target is `examples/single-paper/example-001/`.
 
 Priority files:
 - `artifacts/quick-pass.json`
@@ -24,6 +24,18 @@ Priority files:
 - `artifacts/project-relevance.json`
 - `artifacts/paper-card.json`
 
+## Executable checks
+
+Current executable check:
+- `tests/bin/validate-json.sh`
+
+Run:
+```bash
+bash tests/bin/validate-json.sh
+```
+
+This validates JSON syntax for the current Layer 1 schemas and the `example-001` JSON artifacts.
+
 ## Future direction
 
-A later step can add executable schema checks, but the repository now has the directory and contract in place.
+A later step can add full schema-conformance checks, but the repository now has a minimal executable JSON validation layer in place.

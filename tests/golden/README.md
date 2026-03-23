@@ -22,6 +22,18 @@ Start with:
 
 These are the most valuable early outputs to stabilize.
 
+## Executable checks
+
+Current executable check:
+- `tests/bin/check-example-001-completeness.sh`
+
+Run:
+```bash
+bash tests/bin/check-example-001-completeness.sh
+```
+
+This verifies that the required `example-001` files exist.
+
 ## Expansion path
 
 Later, this directory can hold:
