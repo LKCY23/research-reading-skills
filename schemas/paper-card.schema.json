@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PaperCard",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "metadata",
+    "quick_pass",
+    "method_card",
+    "experiment_card",
+    "claim_evidence_table",
+    "limitations_card",
+    "repro_notes",
+    "critical_read_notes",
+    "project_relevance",
+    "uncertainty_summary"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "source_type", "parsed_from", "ingestion_timestamp"],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "venue": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "doi_or_url": {
+          "type": "string"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": ["pdf", "arxiv", "text", "markdown", "html", "other"]
+        },
+        "parsed_from": {
+          "type": "string"
+        },
+        "ingestion_timestamp": {
+          "type": "string"
+        },
+        "arxiv_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "quick_pass": {
+      "$ref": "./quick-pass.schema.json"
+    },
+    "method_card": {
+      "$ref": "./method-card.schema.json"
+    },
+    "experiment_card": {
+      "$ref": "./experiment-card.schema.json"
+    },
+    "claim_evidence_table": {
+      "type": "array",
+      "items": {
+        "$ref": "./claim-evidence.schema.json"
+      }
+    },
+    "limitations_card": {
+      "$ref": "./limitations-card.schema.json"
+    },
+    "repro_notes": {
+      "$ref": "./repro-notes.schema.json"
+    },
+    "critical_read_notes": {
+      "$ref": "./critical-read-notes.schema.json"
+    },
+    "project_relevance": {
+      "$ref": "./project-relevance.schema.json"
+    },
+    "uncertainty_summary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

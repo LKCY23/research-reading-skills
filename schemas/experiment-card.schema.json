@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExperimentCard",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "datasets_or_benchmarks",
+    "evaluation_metrics",
+    "baselines",
+    "main_results",
+    "ablations",
+    "sensitivity_studies",
+    "result_interpretation"
+  ],
+  "properties": {
+    "datasets_or_benchmarks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evaluation_metrics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "baselines": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "main_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["result", "locator"],
+        "properties": {
+          "result": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ablations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sensitivity_studies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "result_interpretation": {
+      "type": "string"
+    }
+  }
+}

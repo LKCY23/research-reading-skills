@@ -1,0 +1,44 @@
+{
+  "task_definition": "Select and aggregate the most coherent, diverse, and semantically consistent reasoning fragments from multiple sampled LLM reasoning traces in order to improve final-answer accuracy.",
+  "input_output_form": "Input: a query plus N zero-shot chain-of-thought completions from one or more LLMs. Output: a selected subset of stable reasoning fragments used as contextual evidence in a final prompt that yields the answer.",
+  "core_components": [
+    {
+      "name": "Multi-sample reasoning generation",
+      "role": "Generate multiple zero-shot chain-of-thought completions that provide a pool of candidate reasoning traces.",
+      "locator": "p2, Section II"
+    },
+    {
+      "name": "Reason fragment extraction and normalization",
+      "role": "Split completions into atomic reasoning fragments, clean them, and semantically normalize near-duplicates.",
+      "locator": "p2, Section II"
+    },
+    {
+      "name": "HUBO coefficient design",
+      "role": "Assign 1-body, 2-body, and 3-body-or-higher coefficients based on popularity, stability, co-occurrence, and semantic similarity among reasoning fragments.",
+      "locator": "p2-p3, Coefficient Design"
+    },
+    {
+      "name": "Optimization solver",
+      "role": "Solve the resulting energy function using simulated annealing or BF-DCQO to identify low-energy fragment subsets.",
+      "locator": "p3-p4, Section III"
+    },
+    {
+      "name": "Stability ranking and final prompt construction",
+      "role": "Estimate fragment inclusion frequencies across low-energy solutions, keep stable fragments, and reintroduce them into the final prompt.",
+      "locator": "p4-p5, Fig. 1 and Algorithm 1"
+    }
+  ],
+  "training_or_optimization_setup": "The paper does not train a new LLM. Instead, it performs inference-time optimization over sampled reasoning fragments. Classical simulated annealing is used for reduced QUBO instances, while BF-DCQO on IBM quantum hardware is used to handle higher-order structure more directly.",
+  "key_assumptions": [
+    "Useful reasoning can be decomposed into atomic fragments that remain meaningful when recombined.",
+    "Coherence, semantic redundancy, and statistical co-occurrence can be encoded as an energy landscape over fragment subsets.",
+    "Low-energy configurations correspond to higher-quality reasoning subsets.",
+    "Frequency within low-energy solutions is a useful proxy for reasoning-fragment stability and inclusion value."
+  ],
+  "novel_elements": [
+    "Reformulating reasoning aggregation as a HUBO instead of limiting the model to pairwise QUBO interactions.",
+    "Directly incorporating higher-order interactions among reasoning fragments.",
+    "Using BF-DCQO quantum optimization as part of an LLM reasoning aggregation workflow.",
+    "Combining optimized fragment selection with a final answer-generation prompt."
+  ]
+}

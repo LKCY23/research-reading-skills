@@ -1,0 +1,18 @@
+{
+  "author_stated_limitations": [
+    "Quantum experiments were restricted to the best-performing GPT-4o configuration because of runtime and hardware access constraints.",
+    "Current quantum hardware limits the number of qubits and available circuit depth.",
+    "The observed positive quantum improvements are still limited because the current HUBO instances are moderate in size and classical annealing already approximates near-optimal solutions efficiently in that regime.",
+    "The paper reports only LLM-side energy and explicitly does not include the full energy cost of the quantum backend."
+  ],
+  "inferred_limitations": [
+    "The benchmark coverage is narrow: only three BBEH subsets are used, which weakens any claim of broad reasoning improvement across domains.",
+    "The strongest headline claim of surpassing reasoning-native systems is only partially supported by the reported task-level results.",
+    "The method introduces substantial pipeline complexity, and the paper does not deeply analyze latency, engineering overhead, or operational robustness beyond energy comparisons."
+  ],
+  "threats_to_validity": [
+    "The results may be sensitive to the fragment extraction, deduplication threshold, and selection-threshold choices, which are described but not fully stress-tested in ablations.",
+    "Comparisons against reasoning-native models rely on benchmark snapshots that may be influenced by prompting and serving differences outside the optimization stage itself.",
+    "The energy-efficiency narrative depends on approximate external energy estimates and partial system accounting."
+  ]
+}

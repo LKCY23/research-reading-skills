@@ -1,0 +1,74 @@
+[
+  {
+    "claim_id": "C1",
+    "claim_text": "QCR-LLM reformulates reasoning aggregation as a higher-order unconstrained binary optimization problem over reasoning fragments.",
+    "claim_type": "methodological",
+    "stated_by_authors": true,
+    "evidence_type": "textual_argument",
+    "evidence_location": "p1 abstract; p2-p3 Section II",
+    "evidence_summary": "The abstract and Section II explicitly describe reasoning fragments as binary variables and define the aggregation objective as a HUBO energy function with k-body interactions.",
+    "support_strength": "strong",
+    "support_strength_reason": "This is a direct description of the method formulation and is supported by equations and algorithmic exposition.",
+    "reviewer_note": "This is a definitional/method claim rather than an empirical result."
+  },
+  {
+    "claim_id": "C2",
+    "claim_text": "Higher-order interactions among reasoning fragments can be modeled directly in the proposed framework rather than reduced to pairwise structure from the outset.",
+    "claim_type": "methodological",
+    "stated_by_authors": true,
+    "evidence_type": "textual_argument",
+    "evidence_location": "p2-p3 Eq. (1), Eq. (5), Eq. (6), Eq. (7)",
+    "evidence_summary": "The paper explicitly defines 3-body terms and states that the formulation generalizes to arbitrary K, with higher-order coefficients included in the Hamiltonian.",
+    "support_strength": "strong",
+    "support_strength_reason": "The mathematical formulation directly encodes the claim and is central to the paper’s construction.",
+    "reviewer_note": "The implementation example emphasizes K in {2,3}, but the formulation is presented more generally."
+  },
+  {
+    "claim_id": "C3",
+    "claim_text": "QCR-LLM consistently improves reasoning accuracy over the corresponding base LLM across tested backbones.",
+    "claim_type": "performance",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p6-p7 Table I",
+    "evidence_summary": "For GPT-4o, DeepSeek V1, and LLaMA 3.1, the corresponding QCR-LLM variant scores higher than the base model on all three reported BBEH tasks.",
+    "support_strength": "strong",
+    "support_strength_reason": "The table directly reports task accuracies, and each QCR-LLM variant exceeds its paired base model across the listed tasks.",
+    "reviewer_note": "This is well supported within the reported benchmark scope, but the benchmark scope itself is still narrow."
+  },
+  {
+    "claim_id": "C4",
+    "claim_text": "QCR-LLM surpasses reasoning-native systems such as o3-high and DeepSeek R1.",
+    "claim_type": "performance",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p1 abstract; p6-p7 Table I",
+    "evidence_summary": "Table I shows QCR-LLM outperforming o3-high on some tasks and DeepSeek R1 on some tasks, but not all. For example, QCR-LLM (GPT-4o) trails o3-high on DisambiguationQA, and QCR-LLM (DeepSeek V1) trails DeepSeek R1 on NYCC.",
+    "support_strength": "weak",
+    "support_strength_reason": "The paper’s broad superiority framing is not uniformly borne out by the per-task results. The evidence supports competitiveness and selective wins, not universal dominance.",
+    "reviewer_note": "This is one of the main places where the paper’s framing appears stronger than its table-level evidence."
+  },
+  {
+    "claim_id": "C5",
+    "claim_text": "BF-DCQO on quantum hardware can improve over classical simulated annealing for the QCR-LLM optimization stage.",
+    "claim_type": "empirical",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p7 Table II",
+    "evidence_summary": "Table II shows BF-DCQO outperforming SA by +1.0 pp on Causal Understanding, matching on DisambiguationQA, and improving by +0.5 pp on NYCC for the GPT-4o configuration.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The evidence does show small improvements on two tasks and parity on one, but the gains are modest and limited to a single model configuration under constrained hardware experiments.",
+    "reviewer_note": "Supports a limited positive result, not a broad quantum-advantage claim."
+  },
+  {
+    "claim_id": "C6",
+    "claim_text": "QCR-LLM remains substantially more energy-efficient than o3-high while improving or matching reasoning quality in key settings.",
+    "claim_type": "performance",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p8-p9 Section C and Table III",
+    "evidence_summary": "The paper estimates GPT-4o at 3.0 × 10^-4 Wh/token and o3-high at 3.3 × 10^-2 Wh/token, then argues QCR-LLM adds roughly 20% of one extra GPT-4o call per query while remaining far below o3-high’s inferred energy footprint.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The arithmetic in the paper supports a strong efficiency advantage under the authors’ energy model, but the estimate excludes some system-level quantum backend costs and depends on approximate benchmark-based energy assumptions.",
+    "reviewer_note": "Useful and plausible, but should be treated as an approximate comparative estimate rather than a full system-level measurement."
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MethodCard",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_definition",
+    "input_output_form",
+    "core_components",
+    "training_or_optimization_setup",
+    "key_assumptions",
+    "novel_elements"
+  ],
+  "properties": {
+    "task_definition": {
+      "type": "string"
+    },
+    "input_output_form": {
+      "type": "string"
+    },
+    "core_components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "role", "locator"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "training_or_optimization_setup": {
+      "type": "string"
+    },
+    "key_assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "novel_elements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

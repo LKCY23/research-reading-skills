@@ -93,6 +93,14 @@ Goal:
 - what the main contribution appears to be
 - whether it is worth deep reading
 
+Expected input emphasis:
+- metadata
+- title
+- abstract
+- introduction
+- conclusion
+- section index
+
 #### Pass 2: Structured deep read
 Goal:
 - understand method structure
@@ -100,12 +108,24 @@ Goal:
 - understand experimental design
 - capture reported limitations
 
+Expected input emphasis:
+- method or approach sections
+- experiment or results sections
+- figure/table captions
+- selected evidence-oriented chunks
+
 #### Pass 3: Critical and reproducibility-oriented reading
 Goal:
 - identify assumptions
 - test claim/evidence alignment
 - surface weak links
 - identify what would matter for reproduction or extension
+
+Expected input emphasis:
+- Pass 2 structured outputs
+- selected claim/evidence chunks
+- discussion and conclusion sections
+- limitations-relevant source chunks
 
 ### 5.2 Grounded extraction principles
 At every stage, prefer artifacts such as:
@@ -226,6 +246,8 @@ paper-read-skills/
     experiment-card.schema.json
     limitations-card.schema.json
     repro-notes.schema.json
+    critical-read-notes.schema.json
+    project-relevance.schema.json
     literature-review.schema.json
     comparison-matrix.schema.json
   templates/
@@ -292,6 +314,8 @@ Required outputs:
 Important rule:
 Pass 0 should preserve location metadata wherever possible. Evidence binding later depends on this.
 
+For the current Layer 1 scaffolding step, the repository intentionally does not yet define a standalone `normalized_document` schema or a shared structured locator object. This step only establishes the Layer 1 output schemas and pass prompts. String-based locator fields are therefore the current implementation baseline, with structured locator objects planned for a follow-up iteration.
+
 ### Pass 1: Quick pass
 Purpose:
 - generate a reading orientation card
@@ -301,10 +325,9 @@ Purpose:
 Suggested output fields:
 - `paper_type`
 - `problem_statement`
-- `claimed_contribution`
+- `claimed_contributions`
 - `approach_summary`
 - `primary_comparators`
-- `expected_audience`
 - `credibility_signals`
 - `uncertainty_flags`
 - `worth_deep_reading`
@@ -353,7 +376,8 @@ Suggested `claim_evidence_table` row fields:
 - `evidence_location`
 - `evidence_summary`
 - `support_strength` (strong / moderate / weak / unclear)
-- `notes`
+- `support_strength_reason`
+- `reviewer_note`
 
 ### Pass 3: Critical read and reproducibility view
 Purpose:
@@ -374,12 +398,12 @@ Suggested `repro_notes` fields:
 - `expected_failure_points`
 
 Suggested `critical_read_notes` fields:
-- `claim_evidence_gaps`
-- `fairness_of_comparison`
+- `major_support_gaps`
+- `fairness_of_comparisons`
 - `possible_confounds`
-- `unjustified_assumptions`
-- `threats_to_validity`
-- `what_would_change_my_confidence`
+- `assumption_risks`
+- `missing_evidence_that_would_change_confidence`
+- `overall_critical_take`
 
 Suggested `project_relevance` fields:
 - `relevance_to_current_topic`
@@ -394,13 +418,14 @@ Suggested `project_relevance` fields:
 The most important stable artifact for Layer 1 should be `paper_card`.
 
 ## 9.1 `paper_card` should contain
-- metadata
+- constrained metadata (`title`, `source_type`, `parsed_from`, `ingestion_timestamp`, with optional authors/venue/year/source identifiers)
 - quick-pass summary
 - method summary
 - experiment summary
 - claim-evidence table
 - limitations
 - reproduction notes
+- critical read notes
 - project relevance
 - uncertainty markers
 
@@ -418,6 +443,8 @@ Every claim row and major conclusion should point to a location strategy:
 - section title
 - figure/table number
 - chunk identifier
+
+In v1, string-based locator fields are acceptable so long as they are precise and reviewable. In v1.1, migrate toward structured locator objects that can encode section, page range, figure/table IDs, chunk IDs, and optional quote spans for stronger review and merge behavior.
 
 ### Rule 3: Mark uncertainty
 If an extraction is weakly supported because the source is ambiguous, missing, or low quality, the output must say so explicitly.
@@ -563,6 +590,8 @@ They allow us to:
 - `experiment-card.schema.json`
 - `limitations-card.schema.json`
 - `repro-notes.schema.json`
+- `critical-read-notes.schema.json`
+- `project-relevance.schema.json`
 - `comparison-matrix.schema.json`
 - `literature-review.schema.json`
 
@@ -651,7 +680,13 @@ For v1, choose a small, diverse set:
 - one benchmark-heavy engineering paper
 - one paper with obvious reporting weaknesses
 
-This helps reveal where the pipeline breaks.
+The first golden-set evaluations should prioritize these artifacts:
+- `claim_evidence_table`
+- `limitations_card`
+- `repro_notes`
+- `critical_read_notes`
+
+This keeps early testing focused on the outputs that best reflect grounding, reviewability, and real reading quality rather than prose fluency.
 
 ---
 

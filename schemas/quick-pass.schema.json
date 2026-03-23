@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QuickPass",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "paper_type",
+    "problem_statement",
+    "claimed_contributions",
+    "approach_summary",
+    "primary_comparators",
+    "credibility_signals",
+    "uncertainty_flags",
+    "worth_deep_reading",
+    "why_read_or_skip"
+  ],
+  "properties": {
+    "paper_type": {
+      "type": "string",
+      "enum": ["empirical", "theoretical", "systems", "survey", "benchmark", "other"]
+    },
+    "problem_statement": {
+      "type": "string"
+    },
+    "claimed_contributions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approach_summary": {
+      "type": "string"
+    },
+    "primary_comparators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "credibility_signals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "uncertainty_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "worth_deep_reading": {
+      "type": "boolean"
+    },
+    "why_read_or_skip": {
+      "type": "string"
+    }
+  }
+}

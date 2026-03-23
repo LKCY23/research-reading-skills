@@ -1,0 +1,47 @@
+{
+  "datasets_or_benchmarks": [
+    "BIG-Bench Extra Hard (BBEH) - Causal Understanding",
+    "BIG-Bench Extra Hard (BBEH) - DisambiguationQA",
+    "BIG-Bench Extra Hard (BBEH) - NYCC"
+  ],
+  "evaluation_metrics": [
+    "task accuracy (%)",
+    "estimated energy consumption per token (Wh/token) for efficiency comparisons"
+  ],
+  "baselines": [
+    "Base LLMs: GPT-4o, DeepSeek V1, LLaMA 3.1",
+    "Reasoning-native systems: o3-high, DeepSeek R1",
+    "Classical simulated annealing (SA) as solver baseline"
+  ],
+  "main_results": [
+    {
+      "result": "QCR-LLM (GPT-4o) improves over GPT-4o by +5.5 pp on Causal Understanding, +8.3 pp on DisambiguationQA, and +1.5 pp on NYCC.",
+      "locator": "p6-p7, Table I"
+    },
+    {
+      "result": "QCR-LLM (DeepSeek V1) improves over DeepSeek V1 by +8.0 pp, +9.0 pp, and +4.5 pp on the three tasks respectively.",
+      "locator": "p6-p7, Table I"
+    },
+    {
+      "result": "Compared with o3-high, QCR-LLM (GPT-4o) is better on Causal Understanding and NYCC but worse on DisambiguationQA.",
+      "locator": "p6-p7, Table I"
+    },
+    {
+      "result": "BF-DCQO slightly outperforms classical SA on Causal Understanding and NYCC while matching on DisambiguationQA for the GPT-4o configuration.",
+      "locator": "p7, Table II"
+    },
+    {
+      "result": "The paper estimates much lower energy per token for GPT-4o-based QCR-LLM than for o3-high, supporting a strong energy-efficiency claim at inference time.",
+      "locator": "p8-p9, Section C and Table III"
+    }
+  ],
+  "ablations": [
+    "The paper includes a solver comparison between simulated annealing and BF-DCQO rather than a broad ablation over every pipeline component.",
+    "It also compares single-model and combined multi-model aggregation variants in Table I."
+  ],
+  "sensitivity_studies": [
+    "The fragment selection threshold is described as adjustable, affecting the trade-off between informational richness and prompt compactness.",
+    "The paper discusses how problem size and order of interactions affect whether classical or quantum solving is more appropriate."
+  ],
+  "result_interpretation": "The experimental results support the claim that optimization-based fragment selection improves over the corresponding base models. The evidence for a decisive quantum advantage is weaker: quantum BF-DCQO gives modest gains over SA in this benchmark setting, and superiority over reasoning-native baselines is mixed rather than universal."
+}

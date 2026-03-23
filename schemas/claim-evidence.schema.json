@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClaimEvidence",
+  "description": "A single claim row linking a paper claim to supporting evidence and the rationale for its support rating.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "claim_text",
+    "claim_type",
+    "stated_by_authors",
+    "evidence_type",
+    "evidence_location",
+    "evidence_summary",
+    "support_strength",
+    "support_strength_reason",
+    "reviewer_note"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "claim_text": {
+      "type": "string"
+    },
+    "claim_type": {
+      "type": "string",
+      "enum": ["performance", "methodological", "theoretical", "empirical", "limitation", "other"]
+    },
+    "stated_by_authors": {
+      "type": "boolean"
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": ["table", "figure", "textual_argument", "ablation", "theorem", "observation", "unclear"]
+    },
+    "evidence_location": {
+      "type": "string"
+    },
+    "evidence_summary": {
+      "type": "string"
+    },
+    "support_strength": {
+      "type": "string",
+      "enum": ["strong", "moderate", "weak", "unclear"]
+    },
+    "support_strength_reason": {
+      "type": "string"
+    },
+    "reviewer_note": {
+      "type": "string"
+    }
+  }
+}
