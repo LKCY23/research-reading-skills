@@ -1,0 +1,44 @@
+{
+  "task_definition": "Determine how agent-system performance scales as a function of model capability, coordination architecture, agent count, and task properties, and derive predictive rules for architecture selection.",
+  "input_output_form": "Input: benchmark tasks, model families, and agent-system architectures under matched prompts/tools/budgets. Output: comparative performance measurements, coordination metrics, and a predictive scaling model linking architecture choice to task and coordination properties.",
+  "core_components": [
+    {
+      "name": "Agent-system formalism",
+      "role": "Define systems in terms of agent set, environment, communication topology, and orchestration policy so architecture comparisons have a precise basis.",
+      "locator": "p6-p8, Section 3.1"
+    },
+    {
+      "name": "Architecture taxonomy",
+      "role": "Compare SAS against four MAS topologies: Independent, Centralized, Decentralized, and Hybrid.",
+      "locator": "p7-p8; p10 Table 2"
+    },
+    {
+      "name": "Agentic benchmark design",
+      "role": "Operationalize agentic tasks with criteria such as sequential interdependence, partial observability, and adaptive strategy formation.",
+      "locator": "p9-p10"
+    },
+    {
+      "name": "Controlled evaluation protocol",
+      "role": "Match prompts, tools, and token budgets so observed differences can be attributed more cleanly to architecture rather than confounding factors.",
+      "locator": "p3-p4; p10-p12"
+    },
+    {
+      "name": "Scaling-principle model",
+      "role": "Fit a mixed-effects model using model capability, task properties, and coordination metrics to predict architecture performance on held-out configurations.",
+      "locator": "p15-p20, Sections 4.3-4.4"
+    }
+  ],
+  "training_or_optimization_setup": "The paper does not train a new agent policy from scratch. Instead, it runs controlled evaluations across 180 configurations spanning five coordination structures, three LLM families, and four benchmarks, then fits a mixed-effects predictive model using measured coordination metrics such as overhead, message density, redundancy, efficiency, and error amplification.",
+  "key_assumptions": [
+    "Agentic tasks can be distinguished from static benchmarks by interaction-based criteria that matter for architecture choice.",
+    "Matching prompts, tools, and token budgets is sufficient to isolate a meaningful portion of architectural effect.",
+    "Empirical coordination metrics capture mechanisms that generalize better than architecture labels alone.",
+    "Task decomposability and coordination cost are central determinants of multi-agent value."
+  ],
+  "novel_elements": [
+    "A controlled science-style evaluation of agent architectures instead of heuristic multi-agent demonstrations.",
+    "Formal benchmark-design principles for agentic evaluation.",
+    "A predictive scaling model for architecture selection using coordination metrics rather than just nominal labels.",
+    "Quantification of trade-offs such as tool-coordination cost, overhead scaling, and architecture-dependent error propagation."
+  ]
+}

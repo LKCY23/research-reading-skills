@@ -1,0 +1,30 @@
+{
+  "required_assets": [
+    "Implementations of SAS and the four MAS topologies with consistent orchestration semantics.",
+    "Access to the benchmark environments BrowseComp-Plus, Finance-Agent, PlanCraft, and Workbench or close equivalents.",
+    "Three model families with comparable capability scaling and matched budget controls.",
+    "Detailed trace logging needed to compute coordination metrics such as overhead, message density, redundancy, efficiency, and error amplification.",
+    "An analysis pipeline for fitting and validating the mixed-effects scaling model."
+  ],
+  "missing_details": [
+    "The visible pages do not include every appendix-level detail for benchmark prompts, architecture implementation specifics, or per-run trace processing.",
+    "Some metric-construction details are summarized but would still need careful reproduction from supplementary material or code.",
+    "The full benchmark normalization and annotation pipeline is not completely visible from the current page set."
+  ],
+  "high_risk_ambiguities": [
+    "Small implementation differences in orchestration or message passing could materially affect the measured coordination metrics.",
+    "Benchmark decomposability and complexity proxies may be difficult to reproduce exactly without the original analysis code.",
+    "Cross-family comparisons may drift if newer model versions differ from those used in the paper."
+  ],
+  "first_replication_checks": [
+    "Reproduce one benchmark with SAS and at least two MAS architectures under matched token budgets before attempting the full grid.",
+    "Validate that coordination metrics computed from traces match the qualitative ordering shown in Table 5.",
+    "Recreate the architecture-complexity table and confirm that orchestration semantics line up with the paper's taxonomy.",
+    "Fit a reduced predictive model first, then extend to the full mixed-effects specification."
+  ],
+  "expected_failure_points": [
+    "Architecture implementations may accidentally introduce hidden confounds the paper is trying to remove.",
+    "Trace-derived metrics such as redundancy or error amplification may be fragile to annotation and logging choices.",
+    "Benchmark execution cost is high enough that incomplete coverage could make the predictive model unstable or misleading."
+  ]
+}

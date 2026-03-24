@@ -1,0 +1,31 @@
+{
+  "paper_type": "empirical",
+  "problem_statement": "The paper addresses how to adapt very large pretrained language models to downstream tasks without paying the full storage, memory, and deployment cost of fine-tuning every parameter for each task.",
+  "claimed_contributions": [
+    "Introduces Low-Rank Adaptation (LoRA), which freezes pretrained weights and learns task-specific low-rank update matrices.",
+    "Argues that adaptation updates have low intrinsic rank and can therefore be represented efficiently.",
+    "Claims large reductions in trainable parameters and GPU memory relative to full fine-tuning.",
+    "Claims LoRA matches or exceeds full fine-tuning and strong parameter-efficient baselines across RoBERTa, DeBERTa, GPT-2, and GPT-3 tasks.",
+    "Claims LoRA introduces no additional inference latency because the learned update can be merged into the base weights."
+  ],
+  "approach_summary": "LoRA replaces full task-specific weight updates with low-rank matrices A and B added to selected pretrained weight matrices while keeping the backbone frozen. In the paper's Transformer experiments, LoRA is mainly applied to attention projections, especially Wq and Wv, and the learned update can be merged into the original weight matrix at deployment time.",
+  "primary_comparators": [
+    "full fine-tuning",
+    "bias-only / BitFit",
+    "prefix or prompt-based tuning methods",
+    "adapter-based tuning variants"
+  ],
+  "credibility_signals": [
+    "The paper gives a clear mathematical formulation of the low-rank update parameterization.",
+    "It evaluates across several model families and task types rather than a single narrow benchmark.",
+    "It includes explicit parameter counts, latency comparison, and memory/throughput claims tied to concrete settings.",
+    "The method is simple enough to inspect and has an accompanying released package and checkpoints referenced in the abstract."
+  ],
+  "uncertainty_flags": [
+    "The visible pages do not include every appendix detail or every hyperparameter, so some reproduction details remain partial from current coverage.",
+    "The strongest no-latency claim is argued by construction and supported by the merge formulation, but practical deployment trade-offs for multi-task batching are noted as a caveat.",
+    "The low-rank hypothesis is motivated empirically and conceptually, but the visible pages provide more task-level performance evidence than a deep theoretical proof."
+  ],
+  "worth_deep_reading": true,
+  "why_read_or_skip": "Worth a deep read if you care about parameter-efficient adaptation, especially because the method is simple, influential, and tied to practical deployment constraints. It is less about agent behavior directly than about the model-adaptation layer that later agent systems can build on."
+}

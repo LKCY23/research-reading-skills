@@ -1,0 +1,74 @@
+[
+  {
+    "claim_id": "C1",
+    "claim_text": "LoRA adapts pretrained models by freezing base weights and learning low-rank update matrices added to selected weights.",
+    "claim_type": "methodological",
+    "stated_by_authors": true,
+    "evidence_type": "textual_argument",
+    "evidence_location": "p1 abstract; p4 Section 4.1",
+    "evidence_summary": "The abstract and method section explicitly define LoRA as freezing pretrained weights and representing the update as W0 + BA with trainable low-rank matrices A and B.",
+    "support_strength": "strong",
+    "support_strength_reason": "This is the core formal method definition and is directly specified in text and equations.",
+    "reviewer_note": "This is a structural method claim, not a comparative performance claim."
+  },
+  {
+    "claim_id": "C2",
+    "claim_text": "LoRA reduces the number of trainable parameters by orders of magnitude relative to full fine-tuning.",
+    "claim_type": "performance",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p1 abstract; p6-p8 Tables 2-4",
+    "evidence_summary": "The abstract claims a 10,000x reduction for GPT-3 175B, and the tables show trainable parameter counts far below full fine-tuning across RoBERTa, GPT-2, and GPT-3 settings.",
+    "support_strength": "strong",
+    "support_strength_reason": "The claim is directly backed by explicit parameter counts across multiple experiments and scales.",
+    "reviewer_note": "The exact reduction factor depends on model and rank, but the orders-of-magnitude reduction is clearly supported."
+  },
+  {
+    "claim_id": "C3",
+    "claim_text": "LoRA matches or exceeds full fine-tuning quality on the reported benchmarks.",
+    "claim_type": "performance",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p6-p8 Tables 2-4",
+    "evidence_summary": "Across GLUE, E2E NLG, and GPT-3 task tables, LoRA is competitive with or slightly better than fine-tuning in many of the reported settings, including matching or exceeding the GPT-3 175B baseline across the three shown tasks.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The reported tables support strong competitiveness and several wins, but the phrase 'matches or exceeds' should still be understood within the evaluated tasks and setups rather than as a universal statement for all tasks.",
+    "reviewer_note": "Well supported inside the paper's benchmark scope."
+  },
+  {
+    "claim_id": "C4",
+    "claim_text": "LoRA introduces no additional inference latency compared with a fine-tuned model.",
+    "claim_type": "methodological",
+    "stated_by_authors": true,
+    "evidence_type": "textual_argument",
+    "evidence_location": "p1 abstract; p4-p5",
+    "evidence_summary": "The paper argues that because the low-rank update can be merged into the base weight matrix before deployment, inference proceeds as usual without extra layers in the forward path.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The construction strongly supports the claim in the standard merged deployment setting, though the paper also notes caveats for scenarios that need task-specific module switching within one forward pass.",
+    "reviewer_note": "This is best read as 'no additional latency in the merged deployment form'."
+  },
+  {
+    "claim_id": "C5",
+    "claim_text": "Adapter-based methods can introduce significant inference latency in online, short-sequence settings.",
+    "claim_type": "performance",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p3-p4, Table 1",
+    "evidence_summary": "Table 1 reports higher latency for adapter variants than fine-tune/LoRA in GPT-2 medium forward-pass measurements, especially at batch size 1 and short sequence lengths.",
+    "support_strength": "strong",
+    "support_strength_reason": "The table directly reports the latency comparison central to the claim.",
+    "reviewer_note": "The result is tied to the evaluated scenario and hardware, but the paper clearly supports a latency cost for adapters there."
+  },
+  {
+    "claim_id": "C6",
+    "claim_text": "LoRA improves memory and training efficiency for GPT-3 175B relative to full fine-tuning.",
+    "claim_type": "performance",
+    "stated_by_authors": true,
+    "evidence_type": "observation",
+    "evidence_location": "p1 abstract; p5",
+    "evidence_summary": "The paper states that adapting only q and v with r = 4 reduces training VRAM from 1.2TB to 350GB and yields about a 25% training throughput improvement over full fine-tuning on GPT-3 175B.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The claim is concrete and numerically stated, but in the visible pages it is reported textually rather than fully unpacked in a detailed table with variance and multiple conditions.",
+    "reviewer_note": "Plausible and central, though less exhaustively documented than the task-score tables."
+  }
+]

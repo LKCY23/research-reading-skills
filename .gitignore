@@ -1,1 +1,6 @@
 .worktrees/
+runs/
+tmp/
+outputs/
+.claude/
+docs/superpowers/plans/

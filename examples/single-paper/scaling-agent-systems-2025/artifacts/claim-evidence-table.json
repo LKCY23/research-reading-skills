@@ -1,0 +1,74 @@
+[
+  {
+    "claim_id": "C1",
+    "claim_text": "Agentic evaluation should be distinguished from static reasoning evaluation using interaction-based criteria such as sequential interdependence, partial observability, and adaptive strategy formation.",
+    "claim_type": "methodological",
+    "stated_by_authors": true,
+    "evidence_type": "textual_argument",
+    "evidence_location": "p2-p4; p9",
+    "evidence_summary": "The paper explicitly defines agentic tasks in contrast to static tasks and states benchmark-design principles to enforce these differences.",
+    "support_strength": "strong",
+    "support_strength_reason": "This is a central definitional contribution directly argued in the text and tied to the benchmark design section.",
+    "reviewer_note": "A conceptual framing claim, not an empirical leaderboard claim."
+  },
+  {
+    "claim_id": "C2",
+    "claim_text": "Multi-agent coordination is not universally beneficial; its value depends on task structure and architecture choice.",
+    "claim_type": "empirical",
+    "stated_by_authors": true,
+    "evidence_type": "figure",
+    "evidence_location": "p11 Figure 2; p13-p14",
+    "evidence_summary": "Figure 2 shows strong MAS gains on Finance-Agent but degradation on PlanCraft and mixed or modest effects on BrowseComp-Plus and Workbench, demonstrating domain-dependent outcomes.",
+    "support_strength": "strong",
+    "support_strength_reason": "The figure and benchmark-specific discussion directly support the claim that multi-agent effects vary substantially by task.",
+    "reviewer_note": "One of the strongest and clearest empirical claims in the paper."
+  },
+  {
+    "claim_id": "C3",
+    "claim_text": "Task decomposability is more important than raw domain complexity in determining whether coordination helps.",
+    "claim_type": "empirical",
+    "stated_by_authors": true,
+    "evidence_type": "observation",
+    "evidence_location": "p13-p14",
+    "evidence_summary": "The paper contrasts Finance-Agent and PlanCraft, arguing that similar complexity scores can still yield opposite coordination outcomes depending on whether the task decomposes into parallelizable subtasks.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The comparative trace-level discussion is persuasive and mechanistically motivated, though the claim relies more on interpretation of benchmark behavior than on a single dedicated ablation isolating decomposability alone.",
+    "reviewer_note": "This is a strong paper-level interpretation supported by the benchmark contrast."
+  },
+  {
+    "claim_id": "C4",
+    "claim_text": "A mixed-effects model using empirical coordination metrics predicts held-out agent-system performance better than simpler alternatives.",
+    "claim_type": "performance",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p19 Table 3; p20 Table 4",
+    "evidence_summary": "Table 3 reports cross-validated R-squared 0.524 for the full model versus substantially lower values for simpler model specifications, and Table 4 lists interpretable fitted coefficients.",
+    "support_strength": "strong",
+    "support_strength_reason": "The predictive-performance comparison is explicit and numerically reported against simpler baselines.",
+    "reviewer_note": "This is one of the paper's strongest quantitative contributions."
+  },
+  {
+    "claim_id": "C5",
+    "claim_text": "The efficiency-tools interaction is a major bottleneck for multi-agent performance on tool-heavy tasks.",
+    "claim_type": "empirical",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p17; p20 Table 4",
+    "evidence_summary": "The paper reports a significant negative coefficient for the efficiency-tools interaction and interprets this as evidence that tool-heavy workflows suffer disproportionate coordination penalties under MAS overhead.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The coefficient and interpretation are clearly presented, though the causal story still depends on the paper's metric definitions and model specification.",
+    "reviewer_note": "Well supported within the paper's fitted-model framework."
+  },
+  {
+    "claim_id": "C6",
+    "claim_text": "Architecture effectiveness exhibits vendor-specific interactions across LLM families rather than one universal winning topology.",
+    "claim_type": "empirical",
+    "stated_by_authors": true,
+    "evidence_type": "figure",
+    "evidence_location": "p15-p16; Figure 3",
+    "evidence_summary": "The paper shows family-specific cost-performance trade-offs and notes different best-performing architectures across OpenAI, Google, and Anthropic families under different task domains.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The cross-family figure and accompanying discussion support the direction of the claim, though the paper also notes that precise mechanisms remain to be characterized.",
+    "reviewer_note": "This is a valuable but still partly descriptive result rather than a fully mechanistically resolved one."
+  }
+]

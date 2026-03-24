@@ -1,0 +1,53 @@
+{
+  "datasets_or_benchmarks": [
+    "GLUE benchmark on RoBERTa and DeBERTa",
+    "E2E NLG Challenge on GPT-2 medium and large",
+    "WikiSQL on GPT-3 175B",
+    "MNLI-m on GPT-3 175B",
+    "SAMSum on GPT-3 175B"
+  ],
+  "evaluation_metrics": [
+    "task accuracy and task-specific benchmark scores",
+    "latency for a single forward pass",
+    "number of trainable parameters",
+    "GPU memory usage and training throughput in reported large-model settings"
+  ],
+  "baselines": [
+    "full fine-tuning",
+    "bias-only / BitFit",
+    "prefix-embedding tuning",
+    "prefix-layer tuning",
+    "adapter variants including Adapter, AdapterH, and related baselines"
+  ],
+  "main_results": [
+    {
+      "result": "On GLUE, LoRA is competitive with or slightly better than full fine-tuning and strong parameter-efficient baselines while using far fewer trainable parameters.",
+      "locator": "p6, Table 2"
+    },
+    {
+      "result": "On E2E NLG with GPT-2 medium and large, LoRA reaches the best or tied-best scores among the compared adaptation methods with small trainable parameter budgets.",
+      "locator": "p7, Table 3"
+    },
+    {
+      "result": "On GPT-3 175B tasks WikiSQL, MNLI-m, and SAMSum, LoRA matches or exceeds full fine-tuning while reducing trainable parameters from 175,255.8M to 4.7M or 37.7M depending on rank.",
+      "locator": "p8, Table 4"
+    },
+    {
+      "result": "LoRA avoids the inference-latency increase shown by adapter variants in the reported GPT-2 medium latency table.",
+      "locator": "p4, Table 1"
+    },
+    {
+      "result": "For GPT-3 175B, the paper reports reducing training VRAM from 1.2TB to 350GB and increasing training throughput by about 25% compared with full fine-tuning in the described setting.",
+      "locator": "p5"
+    }
+  ],
+  "ablations": [
+    "The paper varies rank r and shows that even very small ranks can work well at large scale.",
+    "It compares adapting different parameter-efficient module types rather than a large internal ablation over many LoRA placements in the visible pages."
+  ],
+  "sensitivity_studies": [
+    "Figure 2 studies validation accuracy versus the number of trainable parameters on GPT-3 175B.",
+    "The paper discusses practical sensitivity to which Transformer matrices are adapted and to the chosen rank r."
+  ],
+  "result_interpretation": "The visible evidence strongly supports LoRA as a practical parameter-efficient adaptation method that preserves or improves task performance relative to both full fine-tuning and prior lightweight alternatives in the reported settings. The most distinctive practical claim is not just parameter reduction but the combination of quality, memory savings, and no added inference latency."
+}

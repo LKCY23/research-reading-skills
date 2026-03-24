@@ -1,0 +1,17 @@
+{
+  "author_stated_limitations": [
+    "The empirical study leaves investigation of adapting MLP layers, LayerNorm layers, and biases to future work.",
+    "The paper notes that batching inputs for different tasks in one forward pass is not straightforward if one wants to avoid additional inference latency through simple module switching.",
+    "The visible experiments mainly focus on attention-weight adaptation for simplicity and parameter efficiency rather than exhaustively testing every placement choice."
+  ],
+  "inferred_limitations": [
+    "The paper is about model adaptation efficiency rather than interactive agent behavior, so its relevance to agent systems is indirect and mediated through the model layer.",
+    "The strongest broad claims rely on a selected benchmark suite and may not capture all downstream adaptation regimes or modalities.",
+    "The low-rank hypothesis is empirically effective here, but the visible pages provide limited analysis of when the assumption fails or which tasks need higher-rank updates."
+  ],
+  "threats_to_validity": [
+    "Performance comparisons inherit the specific training setups, baseline implementations, and evaluation choices reused from prior work.",
+    "Some reported advantages depend on the specific LoRA placement choice and rank, which may shift across architectures and tasks.",
+    "Large-scale efficiency claims for GPT-3 175B are compelling but depend on a particular system configuration described only briefly in the visible pages."
+  ]
+}

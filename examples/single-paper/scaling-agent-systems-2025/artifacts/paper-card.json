@@ -1,0 +1,338 @@
+{
+  "metadata": {
+    "title": "Towards a Science of Scaling Agent Systems",
+    "authors": [
+      "Yubin Kim",
+      "Ken Gu",
+      "Chanwoo Park",
+      "Chunjong Park",
+      "Samuel Schmidgall",
+      "A. Ali Heydari",
+      "Yao Yan",
+      "Zhihan Zhang",
+      "Yuchen Zhuang",
+      "Yun Liu",
+      "Mark Malhotra",
+      "Paul Pu Liang",
+      "Hae Won Park",
+      "Yuzhe Yang",
+      "Xuhai Xu",
+      "Yilun Du",
+      "Shwetak Patel",
+      "Tim Althoff",
+      "Daniel McDuff",
+      "Xin Liu"
+    ],
+    "venue": "arXiv",
+    "year": 2025,
+    "doi_or_url": "https://arxiv.org/abs/2512.08296v2",
+    "source_type": "pdf",
+    "parsed_from": "local-pdf:/Users/liyao/Desktop/schedule/Towards a Science of Scaling Agent Systems.pdf",
+    "ingestion_timestamp": "2026-03-24T00:00:00Z",
+    "arxiv_id": "2512.08296",
+    "version": "v2"
+  },
+  "quick_pass": {
+    "paper_type": "empirical",
+    "problem_statement": "The paper addresses how to derive principled, quantitative scaling rules for agent systems so practitioners can predict when multi-agent coordination helps, when it hurts, and which coordination architecture is best for a given task.",
+    "claimed_contributions": [
+      "Formalizes agentic evaluation by distinguishing agentic tasks from static reasoning tasks.",
+      "Introduces a controlled evaluation framework that isolates architectural effects across single-agent and four multi-agent topologies.",
+      "Reports systematic experiments across four agentic benchmarks, three LLM families, and 180 configurations.",
+      "Derives a predictive mixed-effects scaling model using measurable task and coordination metrics.",
+      "Identifies dominant coordination effects such as the tool-coordination trade-off, capability saturation, and topology-dependent error amplification."
+    ],
+    "approach_summary": "The paper defines agent systems and agentic tasks formally, evaluates five coordination architectures under matched token budgets across four benchmarks, measures coordination metrics such as overhead and redundancy, and fits a scaling-principle model that predicts architecture performance from model capability, task properties, and empirical coordination metrics.",
+    "primary_comparators": [
+      "Single-Agent System (SAS)",
+      "MAS Independent",
+      "MAS Centralized",
+      "MAS Decentralized",
+      "MAS Hybrid"
+    ],
+    "credibility_signals": [
+      "The study uses a controlled design with matched prompts, tools, and computational budgets to reduce confounds.",
+      "It evaluates across multiple task domains and three major LLM families rather than one benchmark or one vendor.",
+      "It reports both raw benchmark outcomes and interpretable coordination metrics with fitted coefficients.",
+      "It includes cross-validated predictive performance comparisons against simpler baseline models."
+    ],
+    "uncertainty_flags": [
+      "The study uses a specific benchmark suite and selected architectures, so broader generalization outside those design choices remains uncertain.",
+      "Some coordination metrics are derived from traces and design choices that may be sensitive to implementation details.",
+      "The strongest universal-sounding claims should be read carefully because several effects remain domain- and vendor-contingent."
+    ],
+    "worth_deep_reading": true,
+    "why_read_or_skip": "Worth a deep read if you care about system-level agent design, because it is explicitly trying to move from heuristics to measurable architecture-selection rules. It is especially useful as the Layer 2 system-scaling anchor because it makes coordination trade-offs visible rather than assuming multi-agent always helps."
+  },
+  "method_card": {
+    "task_definition": "Determine how agent-system performance scales as a function of model capability, coordination architecture, agent count, and task properties, and derive predictive rules for architecture selection.",
+    "input_output_form": "Input: benchmark tasks, model families, and agent-system architectures under matched prompts/tools/budgets. Output: comparative performance measurements, coordination metrics, and a predictive scaling model linking architecture choice to task and coordination properties.",
+    "core_components": [
+      {
+        "name": "Agent-system formalism",
+        "role": "Define systems in terms of agent set, environment, communication topology, and orchestration policy so architecture comparisons have a precise basis.",
+        "locator": "p6-p8, Section 3.1"
+      },
+      {
+        "name": "Architecture taxonomy",
+        "role": "Compare SAS against four MAS topologies: Independent, Centralized, Decentralized, and Hybrid.",
+        "locator": "p7-p8; p10 Table 2"
+      },
+      {
+        "name": "Agentic benchmark design",
+        "role": "Operationalize agentic tasks with criteria such as sequential interdependence, partial observability, and adaptive strategy formation.",
+        "locator": "p9-p10"
+      },
+      {
+        "name": "Controlled evaluation protocol",
+        "role": "Match prompts, tools, and token budgets so observed differences can be attributed more cleanly to architecture rather than confounding factors.",
+        "locator": "p3-p4; p10-p12"
+      },
+      {
+        "name": "Scaling-principle model",
+        "role": "Fit a mixed-effects model using model capability, task properties, and coordination metrics to predict architecture performance on held-out configurations.",
+        "locator": "p15-p20, Sections 4.3-4.4"
+      }
+    ],
+    "training_or_optimization_setup": "The paper does not train a new agent policy from scratch. Instead, it runs controlled evaluations across 180 configurations spanning five coordination structures, three LLM families, and four benchmarks, then fits a mixed-effects predictive model using measured coordination metrics such as overhead, message density, redundancy, efficiency, and error amplification.",
+    "key_assumptions": [
+      "Agentic tasks can be distinguished from static benchmarks by interaction-based criteria that matter for architecture choice.",
+      "Matching prompts, tools, and token budgets is sufficient to isolate a meaningful portion of architectural effect.",
+      "Empirical coordination metrics capture mechanisms that generalize better than architecture labels alone.",
+      "Task decomposability and coordination cost are central determinants of multi-agent value."
+    ],
+    "novel_elements": [
+      "A controlled science-style evaluation of agent architectures instead of heuristic multi-agent demonstrations.",
+      "Formal benchmark-design principles for agentic evaluation.",
+      "A predictive scaling model for architecture selection using coordination metrics rather than just nominal labels.",
+      "Quantification of trade-offs such as tool-coordination cost, overhead scaling, and architecture-dependent error propagation."
+    ]
+  },
+  "experiment_card": {
+    "datasets_or_benchmarks": [
+      "BrowseComp-Plus",
+      "Finance-Agent",
+      "PlanCraft",
+      "Workbench"
+    ],
+    "evaluation_metrics": [
+      "task success or accuracy by benchmark",
+      "coordination overhead",
+      "message density",
+      "redundancy rate",
+      "coordination efficiency",
+      "error amplification",
+      "cross-validated model R-squared"
+    ],
+    "baselines": [
+      "Single-Agent System (SAS)",
+      "MAS Independent",
+      "MAS Centralized",
+      "MAS Decentralized",
+      "MAS Hybrid",
+      "simpler predictive models using architecture labels or intelligence only"
+    ],
+    "main_results": [
+      {
+        "result": "Multi-agent benefits are highly task-dependent: Finance-Agent shows strong positive MAS gains, while PlanCraft degrades under all tested MAS variants.",
+        "locator": "p11 Figure 2; p13-p14"
+      },
+      {
+        "result": "The mixed-effects scaling model achieves cross-validated R-squared of 0.524 and outperforms simpler predictive models using only architecture labels or intelligence.",
+        "locator": "p15; p19 Table 3; p20 Table 4"
+      },
+      {
+        "result": "The efficiency-tools interaction is identified as the strongest second-largest effect, showing that tool-heavy tasks suffer disproportionate cost from coordination overhead.",
+        "locator": "p17"
+      },
+      {
+        "result": "Overhead scales non-linearly with task complexity, and hybrid architecture can be heavily penalized on tool-heavy tasks because coordination cost compounds with complexity.",
+        "locator": "p18"
+      },
+      {
+        "result": "Coordination metrics differ sharply by architecture: MAS variants require many more turns and incur much higher overhead than SAS, with Independent showing the highest error amplification in Table 5.",
+        "locator": "p20 Table 5"
+      }
+    ],
+    "ablations": [
+      "The paper performs a structural ablation over five coordination architectures rather than a narrow parameter ablation.",
+      "Table 3 compares the full scaling-principle model to simpler model specifications with fewer predictor groups."
+    ],
+    "sensitivity_studies": [
+      "The paper discusses sensitivity analyses showing qualitatively similar results under alternative specifications for the predictive model.",
+      "It examines interactions across task domains and model families rather than only pooled average outcomes."
+    ],
+    "result_interpretation": "The study supports a strong negative result against naive multi-agent heuristics: coordination is not universally beneficial. Its more constructive result is that measurable task and coordination properties predict when different architectures help. The main value is therefore less a single leaderboard result and more an interpretable rule set for architecture choice."
+  },
+  "claim_evidence_table": [
+    {
+      "claim_id": "C1",
+      "claim_text": "Agentic evaluation should be distinguished from static reasoning evaluation using interaction-based criteria such as sequential interdependence, partial observability, and adaptive strategy formation.",
+      "claim_type": "methodological",
+      "stated_by_authors": true,
+      "evidence_type": "textual_argument",
+      "evidence_location": "p2-p4; p9",
+      "evidence_summary": "The paper explicitly defines agentic tasks in contrast to static tasks and states benchmark-design principles to enforce these differences.",
+      "support_strength": "strong",
+      "support_strength_reason": "This is a central definitional contribution directly argued in the text and tied to the benchmark design section.",
+      "reviewer_note": "A conceptual framing claim, not an empirical leaderboard claim."
+    },
+    {
+      "claim_id": "C2",
+      "claim_text": "Multi-agent coordination is not universally beneficial; its value depends on task structure and architecture choice.",
+      "claim_type": "empirical",
+      "stated_by_authors": true,
+      "evidence_type": "figure",
+      "evidence_location": "p11 Figure 2; p13-p14",
+      "evidence_summary": "Figure 2 shows strong MAS gains on Finance-Agent but degradation on PlanCraft and mixed or modest effects on BrowseComp-Plus and Workbench, demonstrating domain-dependent outcomes.",
+      "support_strength": "strong",
+      "support_strength_reason": "The figure and benchmark-specific discussion directly support the claim that multi-agent effects vary substantially by task.",
+      "reviewer_note": "One of the strongest and clearest empirical claims in the paper."
+    },
+    {
+      "claim_id": "C3",
+      "claim_text": "Task decomposability is more important than raw domain complexity in determining whether coordination helps.",
+      "claim_type": "empirical",
+      "stated_by_authors": true,
+      "evidence_type": "observation",
+      "evidence_location": "p13-p14",
+      "evidence_summary": "The paper contrasts Finance-Agent and PlanCraft, arguing that similar complexity scores can still yield opposite coordination outcomes depending on whether the task decomposes into parallelizable subtasks.",
+      "support_strength": "moderate",
+      "support_strength_reason": "The comparative trace-level discussion is persuasive and mechanistically motivated, though the claim relies more on interpretation of benchmark behavior than on a single dedicated ablation isolating decomposability alone.",
+      "reviewer_note": "This is a strong paper-level interpretation supported by the benchmark contrast."
+    },
+    {
+      "claim_id": "C4",
+      "claim_text": "A mixed-effects model using empirical coordination metrics predicts held-out agent-system performance better than simpler alternatives.",
+      "claim_type": "performance",
+      "stated_by_authors": true,
+      "evidence_type": "table",
+      "evidence_location": "p19 Table 3; p20 Table 4",
+      "evidence_summary": "Table 3 reports cross-validated R-squared 0.524 for the full model versus substantially lower values for simpler model specifications, and Table 4 lists interpretable fitted coefficients.",
+      "support_strength": "strong",
+      "support_strength_reason": "The predictive-performance comparison is explicit and numerically reported against simpler baselines.",
+      "reviewer_note": "This is one of the paper's strongest quantitative contributions."
+    },
+    {
+      "claim_id": "C5",
+      "claim_text": "The efficiency-tools interaction is a major bottleneck for multi-agent performance on tool-heavy tasks.",
+      "claim_type": "empirical",
+      "stated_by_authors": true,
+      "evidence_type": "table",
+      "evidence_location": "p17; p20 Table 4",
+      "evidence_summary": "The paper reports a significant negative coefficient for the efficiency-tools interaction and interprets this as evidence that tool-heavy workflows suffer disproportionate coordination penalties under MAS overhead.",
+      "support_strength": "moderate",
+      "support_strength_reason": "The coefficient and interpretation are clearly presented, though the causal story still depends on the paper's metric definitions and model specification.",
+      "reviewer_note": "Well supported within the paper's fitted-model framework."
+    },
+    {
+      "claim_id": "C6",
+      "claim_text": "Architecture effectiveness exhibits vendor-specific interactions across LLM families rather than one universal winning topology.",
+      "claim_type": "empirical",
+      "stated_by_authors": true,
+      "evidence_type": "figure",
+      "evidence_location": "p15-p16; Figure 3",
+      "evidence_summary": "The paper shows family-specific cost-performance trade-offs and notes different best-performing architectures across OpenAI, Google, and Anthropic families under different task domains.",
+      "support_strength": "moderate",
+      "support_strength_reason": "The cross-family figure and accompanying discussion support the direction of the claim, though the paper also notes that precise mechanisms remain to be characterized.",
+      "reviewer_note": "This is a valuable but still partly descriptive result rather than a fully mechanistically resolved one."
+    }
+  ],
+  "limitations_card": {
+    "author_stated_limitations": [
+      "The paper studies selected agent architectures rather than exhaustively covering all possible coordination mechanisms.",
+      "The predictive model is fit on the chosen benchmark suite and configuration set rather than on every possible deployment domain.",
+      "The paper notes that some precise architecture-family mechanisms remain to be characterized rather than fully explained."
+    ],
+    "inferred_limitations": [
+      "The conclusions depend on the specific benchmark design choices and the paper's operationalization of agentic tasks.",
+      "Some coordination metrics are engineered constructs that may shift with different logging, tokenization, or orchestration implementations.",
+      "The work evaluates controlled offline experiments and therefore cannot by itself answer all practical deployment questions about production systems."
+    ],
+    "threats_to_validity": [
+      "Even with matched prompts and token budgets, hidden implementation differences may still influence some architecture comparisons.",
+      "The fitted-model conclusions depend on the chosen feature set and regression specification, even though the paper reports sensitivity analysis.",
+      "Vendor-specific effects may reflect model-family particulars that could change as frontier systems evolve."
+    ]
+  },
+  "repro_notes": {
+    "required_assets": [
+      "Implementations of SAS and the four MAS topologies with consistent orchestration semantics.",
+      "Access to the benchmark environments BrowseComp-Plus, Finance-Agent, PlanCraft, and Workbench or close equivalents.",
+      "Three model families with comparable capability scaling and matched budget controls.",
+      "Detailed trace logging needed to compute coordination metrics such as overhead, message density, redundancy, efficiency, and error amplification.",
+      "An analysis pipeline for fitting and validating the mixed-effects scaling model."
+    ],
+    "missing_details": [
+      "The visible pages do not include every appendix-level detail for benchmark prompts, architecture implementation specifics, or per-run trace processing.",
+      "Some metric-construction details are summarized but would still need careful reproduction from supplementary material or code.",
+      "The full benchmark normalization and annotation pipeline is not completely visible from the current page set."
+    ],
+    "high_risk_ambiguities": [
+      "Small implementation differences in orchestration or message passing could materially affect the measured coordination metrics.",
+      "Benchmark decomposability and complexity proxies may be difficult to reproduce exactly without the original analysis code.",
+      "Cross-family comparisons may drift if newer model versions differ from those used in the paper."
+    ],
+    "first_replication_checks": [
+      "Reproduce one benchmark with SAS and at least two MAS architectures under matched token budgets before attempting the full grid.",
+      "Validate that coordination metrics computed from traces match the qualitative ordering shown in Table 5.",
+      "Recreate the architecture-complexity table and confirm that orchestration semantics line up with the paper's taxonomy.",
+      "Fit a reduced predictive model first, then extend to the full mixed-effects specification."
+    ],
+    "expected_failure_points": [
+      "Architecture implementations may accidentally introduce hidden confounds the paper is trying to remove.",
+      "Trace-derived metrics such as redundancy or error amplification may be fragile to annotation and logging choices.",
+      "Benchmark execution cost is high enough that incomplete coverage could make the predictive model unstable or misleading."
+    ]
+  },
+  "critical_read_notes": {
+    "major_support_gaps": [
+      "The paper gives a strong controlled study, but the selected architecture set and benchmark suite still leave open whether the same principles hold under very different deployment regimes.",
+      "Some mechanistic claims about why vendor-specific differences arise remain suggestive rather than fully resolved.",
+      "The predictive model is impressive, but it still explains only about half the variance, leaving substantial unmodeled factors."
+    ],
+    "fairness_of_comparisons": [
+      "The paper makes a serious effort to equalize prompts, tools, and token budgets, which substantially improves comparison fairness relative to much prior agent-systems work.",
+      "Using normalized scores relative to SAS is a reasonable design choice for architecture-effect analysis.",
+      "Some residual fairness concerns remain because real systems may differ in tooling and orchestration quality beyond what controlled abstraction can capture."
+    ],
+    "possible_confounds": [
+      "Measured coordination metrics may partly reflect implementation choices rather than purely architectural essence.",
+      "Task-domain effects may interact with hidden benchmark-specific artifacts not fully captured by decomposability or complexity proxies.",
+      "Vendor-specific architecture effects could partly reflect prompt-following style, context usage, or hidden system behavior beyond nominal model capability."
+    ],
+    "assumption_risks": [
+      "The paper assumes its selected coordination metrics are sufficient proxies for the main mechanisms driving agent-system performance.",
+      "It assumes matched token budgets are an appropriate control for cross-architecture fairness.",
+      "It assumes the chosen benchmark suite spans enough task structure diversity to ground general architecture-selection rules."
+    ],
+    "missing_evidence_that_would_change_confidence": [
+      "Replication on additional benchmarks and newer agent environments would strengthen confidence in the claimed scaling principles.",
+      "Open-source implementations of the evaluated architectures and metric pipeline would make the causal claims easier to audit.",
+      "A stronger causal breakdown of vendor-specific interactions would help move from descriptive findings to more portable design rules."
+    ],
+    "overall_critical_take": "This is a valuable paper because it asks a better question than most agent-systems work: not whether multi-agent can ever help, but when and why. Its strongest contribution is the controlled comparative frame and the attempt to extract predictive rules from measurable coordination properties. The evidence convincingly rejects naive 'more agents is better' heuristics and offers a plausible first-generation science of architecture selection. The main caveat is that the resulting rules are still contingent on the chosen metrics, benchmarks, and architecture family definitions, so they should be treated as a strong foundation rather than a final law of agent scaling."
+  },
+  "project_relevance": {
+    "relevance_to_current_topic": "Highly relevant as the system-level scaling and coordination anchor in the three-paper review because it addresses when multi-agent structure helps or hurts, which neither LoRA nor OpenClaw-RL answers directly.",
+    "reusable_ideas": [
+      "Use it as the canonical system-level paper for architecture-selection and coordination trade-off analysis.",
+      "Use it as a strong claim-evidence example for fitting a predictive model from interpretable operational metrics.",
+      "Use it to frame the distinction between model adaptation, online policy improvement, and coordination architecture as different intervention layers."
+    ],
+    "parts_to_ignore": [
+      "Do not treat the reported scaling principles as timeless universal laws detached from the paper's benchmark and architecture choices.",
+      "Do not collapse its system-level findings into claims about parameter-efficient adaptation or online RL training infrastructure, which are outside its main scope."
+    ],
+    "what_to_read_next": [
+      "Follow-up work on agent benchmark design and coordination evaluation.",
+      "Papers on specific multi-agent failure modes, orchestration mechanisms, and communication topologies cited in the related work.",
+      "Agent-training papers and adaptation papers that operate at different layers of the stack for complementary comparison."
+    ]
+  },
+  "uncertainty_summary": [
+    "This read is grounded in the visible framing, benchmark, result, and model-analysis pages, but not every appendix detail is present.",
+    "The paper strongly supports the claim that coordination effects are task-dependent and often costly.",
+    "The predictive scaling principles are compelling and well evidenced within the reported study, but they should still be treated as study-bounded rather than final universal laws."
+  ]
+}

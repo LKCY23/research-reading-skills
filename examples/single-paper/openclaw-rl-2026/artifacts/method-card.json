@@ -1,0 +1,44 @@
+{
+  "task_definition": "Train deployed agents directly from live next-state signals across heterogeneous interaction settings such as personal conversations, terminal use, GUI interaction, software engineering, and tool-call traces.",
+  "input_output_form": "Input: interaction streams containing states, actions, and subsequent next-state feedback from users or environments. Output: an updated policy that learns from evaluative scalar rewards and directive token-level corrective signals while continuing to serve requests online.",
+  "core_components": [
+    {
+      "name": "Next-state signal extraction",
+      "role": "Treat the first message or environment feedback after an action as the next-state signal that carries evaluative or directive information.",
+      "locator": "p3-p5"
+    },
+    {
+      "name": "Asynchronous four-component infrastructure",
+      "role": "Decouple policy serving, environment hosting, reward judging, and policy training so learning can proceed online without blocking inference.",
+      "locator": "p1 Figure 1; p5 Section 3.1"
+    },
+    {
+      "name": "Binary RL with PRM judging",
+      "role": "Convert evaluative next-state signals into scalar process rewards via judge voting and optimize the policy with a PPO-style objective.",
+      "locator": "p6-p7 Section 4.1; p18 Appendix A"
+    },
+    {
+      "name": "Hindsight-Guided On-Policy Distillation",
+      "role": "Extract concise corrective hints from directive next-state signals and turn them into token-level teacher supervision via an enhanced-context teacher query.",
+      "locator": "p7-p8 Section 4.2; p18 Appendix A"
+    },
+    {
+      "name": "Step-wise reward integration for general agents",
+      "role": "Combine outcome and process rewards for long-horizon agentic RL settings where terminal reward alone is too sparse.",
+      "locator": "p9 Section 4.4"
+    }
+  ],
+  "training_or_optimization_setup": "The policy receives interaction streams online. Binary RL uses a PRM judge and PPO-style clipped objective with KL regularization. OPD queries the same model under a hint-enhanced context and computes token-level advantage from the teacher-student log-prob gap. The paper uses a decoupled asynchronous runtime so rollout, reward judging, and training can run concurrently, with hyperparameters summarized in Appendix D.",
+  "key_assumptions": [
+    "Next-state signals encode useful evaluative or directive information about the preceding action.",
+    "A shared policy can learn from heterogeneous next-state sources across multiple agent settings.",
+    "Directive feedback can be distilled into concise hints that improve token-level supervision quality.",
+    "Continuous online training can be made practical if serving and training are sufficiently decoupled."
+  ],
+  "novel_elements": [
+    "Using next-state signals as the unifying live online learning source across both personal and general agents.",
+    "Introducing OPD to convert directive next-state feedback into token-level on-policy distillation.",
+    "Building a single asynchronous infrastructure that supports both personal-agent personalization and scalable general-agent RL.",
+    "Integrating process and outcome rewards in a next-state-centric framework for long-horizon agents."
+  ]
+}

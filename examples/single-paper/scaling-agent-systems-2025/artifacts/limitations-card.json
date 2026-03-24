@@ -1,0 +1,17 @@
+{
+  "author_stated_limitations": [
+    "The paper studies selected agent architectures rather than exhaustively covering all possible coordination mechanisms.",
+    "The predictive model is fit on the chosen benchmark suite and configuration set rather than on every possible deployment domain.",
+    "The paper notes that some precise architecture-family mechanisms remain to be characterized rather than fully explained."
+  ],
+  "inferred_limitations": [
+    "The conclusions depend on the specific benchmark design choices and the paper's operationalization of agentic tasks.",
+    "Some coordination metrics are engineered constructs that may shift with different logging, tokenization, or orchestration implementations.",
+    "The work evaluates controlled offline experiments and therefore cannot by itself answer all practical deployment questions about production systems."
+  ],
+  "threats_to_validity": [
+    "Even with matched prompts and token budgets, hidden implementation differences may still influence some architecture comparisons.",
+    "The fitted-model conclusions depend on the chosen feature set and regression specification, even though the paper reports sensitivity analysis.",
+    "Vendor-specific effects may reflect model-family particulars that could change as frontier systems evolve."
+  ]
+}

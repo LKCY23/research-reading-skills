@@ -1,0 +1,31 @@
+{
+  "required_assets": [
+    "A policy model capable of serving agent actions online.",
+    "Environment servers for the target settings such as terminal, GUI, SWE, tool-call, or personal-device interaction.",
+    "A PRM or judge model for evaluative next-state scoring and hint extraction.",
+    "Asynchronous infrastructure that decouples rollout, judging, and training.",
+    "Per-setting datasets or live interaction streams for agent optimization."
+  ],
+  "missing_details": [
+    "The visible pages do not fully quantify operational overhead, latency, or failure behavior under real production traffic.",
+    "Some environment-integration details for each supported setting are only sketched at a high level.",
+    "The robustness of judge prompts and hint extraction quality under noisier deployments is not deeply stress-tested in the visible pages."
+  ],
+  "high_risk_ambiguities": [
+    "The exact usefulness of next-state signals likely depends on environment quality and whether feedback is cleanly attributable to the preceding action.",
+    "OPD quality depends on whether hindsight hints are concise, correct, and actionable; poor hint extraction could hurt training.",
+    "Asynchronous online training can create debugging complexity around policy versioning and delayed supervision."
+  ],
+  "first_replication_checks": [
+    "Reproduce Binary RL alone on one simple setting before adding OPD or multi-setting infrastructure.",
+    "Verify that next-state extraction and PRM judging attach the correct feedback to the preceding action turn.",
+    "Check that the asynchronous queueing design preserves correct policy-version boundaries in logs.",
+    "Replicate the combined-vs-single-method comparison in the personal-agent setting before scaling out."
+  ],
+  "expected_failure_points": [
+    "Misaligned next-state attribution could produce incorrect rewards or hints for the wrong actions.",
+    "PRM or judge prompt drift could introduce noisy reward supervision.",
+    "Directive hints may be too verbose, irrelevant, or inconsistent for OPD if filtering is weak.",
+    "Real-time system coordination may become fragile if serving, judging, and training components fall out of sync."
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "papers": [
+    {
+      "paper_id": "lora-2021",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "authors": [
+        "Edward Hu",
+        "Yelong Shen",
+        "Phillip Wallis",
+        "Zeyuan Allen-Zhu",
+        "Yuanzhi Li",
+        "Shean Wang",
+        "Lu Wang",
+        "Weizhu Chen"
+      ],
+      "coverage_state": "full_layer1",
+      "inclusion_reason": "Included as a model-adaptation anchor relevant to how agent-oriented systems can change behavior efficiently.",
+      "layer1_artifacts_available": [
+        "quick-pass.json",
+        "method-card.json",
+        "experiment-card.json",
+        "claim-evidence-table.json",
+        "limitations-card.json",
+        "repro-notes.json",
+        "critical-read-notes.json",
+        "project-relevance.json",
+        "paper-card.json",
+        "paper-card.md"
+      ],
+      "comparison_readiness_note": "Ready for grounded intervention-level and claim-aware comparison as a Layer 1-complete model-adaptation anchor."
+    },
+    {
+      "paper_id": "openclaw-rl-2026",
+      "title": "OpenClaw-RL: Train Any Agent Simply by Talking",
+      "authors": [
+        "Yinjie Wang",
+        "Xuyang Chen",
+        "Xiaolong Jin",
+        "Mengdi Wang",
+        "Ling Yang"
+      ],
+      "coverage_state": "full_layer1",
+      "inclusion_reason": "Included as an agent-training anchor centered on next-state signals and RL for personal and general agents.",
+      "layer1_artifacts_available": [
+        "quick-pass.json",
+        "method-card.json",
+        "experiment-card.json",
+        "claim-evidence-table.json",
+        "limitations-card.json",
+        "repro-notes.json",
+        "critical-read-notes.json",
+        "project-relevance.json",
+        "paper-card.json",
+        "paper-card.md"
+      ],
+      "comparison_readiness_note": "Ready for grounded comparison on training-layer claims, evidence style, and online learning assumptions."
+    },
+    {
+      "paper_id": "scaling-agent-systems-2025",
+      "title": "Towards a Science of Scaling Agent Systems",
+      "authors": [
+        "Yubin Kim",
+        "Ken Gu",
+        "Chanwoo Park",
+        "Chunjong Park",
+        "Samuel Schmidgall",
+        "A. Ali Heydari",
+        "Yao Yan",
+        "Zhihan Zhang",
+        "Yuchen Zhuang",
+        "Yun Liu",
+        "Mark Malhotra",
+        "Paul Pu Liang",
+        "Hae Won Park",
+        "Yuzhe Yang",
+        "Xuhai Xu",
+        "Yilun Du",
+        "Shwetak Patel",
+        "Tim Althoff",
+        "Daniel McDuff",
+        "Xin Liu"
+      ],
+      "coverage_state": "full_layer1",
+      "inclusion_reason": "Included as a system-level scaling and evaluation anchor for agent architectures and coordination trade-offs.",
+      "layer1_artifacts_available": [
+        "quick-pass.json",
+        "method-card.json",
+        "experiment-card.json",
+        "claim-evidence-table.json",
+        "limitations-card.json",
+        "repro-notes.json",
+        "critical-read-notes.json",
+        "project-relevance.json",
+        "paper-card.json",
+        "paper-card.md"
+      ],
+      "comparison_readiness_note": "Ready for grounded comparison on system-level evidence, scaling principles, and coordination trade-offs."
+    }
+  ],
+  "coverage_summary": [
+    "Total papers: 3",
+    "seed_only: 0",
+    "partial_layer1: 0",
+    "full_layer1: 3",
+    "This example is now backed by full Layer 1 artifact sets for all three papers."
+  ],
+  "missing_layer1_artifacts": [],
+  "papers_needing_deeper_read": []
+}

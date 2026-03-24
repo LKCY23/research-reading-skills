@@ -1,0 +1,32 @@
+{
+  "paper_type": "empirical",
+  "problem_statement": "The paper addresses how to derive principled, quantitative scaling rules for agent systems so practitioners can predict when multi-agent coordination helps, when it hurts, and which coordination architecture is best for a given task.",
+  "claimed_contributions": [
+    "Formalizes agentic evaluation by distinguishing agentic tasks from static reasoning tasks.",
+    "Introduces a controlled evaluation framework that isolates architectural effects across single-agent and four multi-agent topologies.",
+    "Reports systematic experiments across four agentic benchmarks, three LLM families, and 180 configurations.",
+    "Derives a predictive mixed-effects scaling model using measurable task and coordination metrics.",
+    "Identifies dominant coordination effects such as the tool-coordination trade-off, capability saturation, and topology-dependent error amplification."
+  ],
+  "approach_summary": "The paper defines agent systems and agentic tasks formally, evaluates five coordination architectures under matched token budgets across four benchmarks, measures coordination metrics such as overhead and redundancy, and fits a scaling-principle model that predicts architecture performance from model capability, task properties, and empirical coordination metrics.",
+  "primary_comparators": [
+    "Single-Agent System (SAS)",
+    "MAS Independent",
+    "MAS Centralized",
+    "MAS Decentralized",
+    "MAS Hybrid"
+  ],
+  "credibility_signals": [
+    "The study uses a controlled design with matched prompts, tools, and computational budgets to reduce confounds.",
+    "It evaluates across multiple task domains and three major LLM families rather than one benchmark or one vendor.",
+    "It reports both raw benchmark outcomes and interpretable coordination metrics with fitted coefficients.",
+    "It includes cross-validated predictive performance comparisons against simpler baseline models."
+  ],
+  "uncertainty_flags": [
+    "The study uses a specific benchmark suite and selected architectures, so broader generalization outside those design choices remains uncertain.",
+    "Some coordination metrics are derived from traces and design choices that may be sensitive to implementation details.",
+    "The strongest universal-sounding claims should be read carefully because several effects remain domain- and vendor-contingent."
+  ],
+  "worth_deep_reading": true,
+  "why_read_or_skip": "Worth a deep read if you care about system-level agent design, because it is explicitly trying to move from heuristics to measurable architecture-selection rules. It is especially useful as the Layer 2 system-scaling anchor because it makes coordination trade-offs visible rather than assuming multi-agent always helps."
+}

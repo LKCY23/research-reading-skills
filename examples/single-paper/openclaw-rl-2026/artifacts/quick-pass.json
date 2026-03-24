@@ -1,0 +1,31 @@
+{
+  "paper_type": "empirical",
+  "problem_statement": "The paper addresses how deployed agents can learn continuously from the next-state signals they already generate during use, instead of discarding those signals or relying only on offline datasets and terminal outcome rewards.",
+  "claimed_contributions": [
+    "Introduces OpenClaw-RL, a unified framework that recovers next-state signals as a live online learning source for both personal and general agents.",
+    "Separates next-state information into evaluative signals for scalar process rewards and directive signals for token-level corrective supervision.",
+    "Proposes Hindsight-Guided On-Policy Distillation (OPD) to convert directive next-state information into token-level advantage supervision.",
+    "Builds a fully decoupled asynchronous infrastructure that allows policy serving, environment hosting, reward judging, and training to run in parallel.",
+    "Reports positive results across personal-agent personalization and general-agent RL settings including terminal, GUI, SWE, and tool-call tasks."
+  ],
+  "approach_summary": "OpenClaw-RL treats the next state after each agent action as the core learning signal. It scores evaluative next-state signals with a PRM judge for Binary RL, extracts concise hindsight hints from directive signals for OPD, and trains a single policy through an asynchronous infrastructure spanning multiple agent environments and interaction types.",
+  "primary_comparators": [
+    "Binary RL alone",
+    "OPD alone",
+    "combined Binary RL + OPD",
+    "outcome-only rewards for general-agent RL"
+  ],
+  "credibility_signals": [
+    "The paper gives a unified formalization of interaction streams and next-state-based reward learning.",
+    "It includes infrastructure diagrams, algorithm pseudocode, judge prompt templates, and a hyperparameter appendix.",
+    "It evaluates both personal-agent and general-agent settings instead of only a single toy environment.",
+    "The experiments distinguish complementary method variants rather than presenting only one aggregate result."
+  ],
+  "uncertainty_flags": [
+    "Several experiments rely on simulation or benchmark-specific settings, so real-world robustness beyond the reported environments remains uncertain.",
+    "The paper argues broad framework generality, but the strongest evidence is still concentrated in the reported settings and model stack.",
+    "Some quality judgments depend on PRM prompts, judge design, and next-state formatting choices that could materially affect results."
+  ],
+  "worth_deep_reading": true,
+  "why_read_or_skip": "Worth a deep read if you care about agent learning from live interaction traces, RL infrastructure, or how to use rich next-state feedback rather than just final outcomes. It is especially relevant as a Layer 1 anchor for the agent-training level of the stack."
+}

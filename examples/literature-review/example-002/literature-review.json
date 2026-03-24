@@ -1,0 +1,358 @@
+{
+  "metadata": {
+    "topic": "Adaptation, training, and scaling choices relevant to agent systems",
+    "research_question": "How do papers relevant to agent-oriented AI systems intervene at different levels of the stack—model adaptation, policy learning from interaction, and system-level scaling—and what does each level make visible or leave unresolved?",
+    "created_from": "example-002 three-paper Layer 1-backed set",
+    "review_timestamp": "2026-03-23T00:00:00Z"
+  },
+  "topic_scope": {
+    "topic": "Adaptation, training, and scaling choices relevant to agent systems",
+    "research_question": "How do papers relevant to agent-oriented AI systems intervene at different levels of the stack—model adaptation, policy learning from interaction, and system-level scaling—and what does each level make visible or leave unresolved?",
+    "scope_summary": "This review uses a heterogeneous three-paper seed set to compare distinct intervention layers relevant to agent-oriented AI systems rather than to rank directly benchmark-comparable methods.",
+    "inclusion_criteria": [
+      "Include seed papers that represent distinct intervention layers relevant to agent-oriented AI systems.",
+      "Keep papers that help compare model adaptation, agent learning from interaction, and system-level scaling/evaluation."
+    ],
+    "exclusion_criteria": [
+      "Exclude claims of direct empirical superiority across the entire seed set.",
+      "Exclude benchmark-style winner/loser conclusions unless the papers are directly comparable on the same task."
+    ],
+    "initial_comparison_axes": [
+      "level of intervention",
+      "primary objective",
+      "evidence type",
+      "agent scope",
+      "major limitation or unresolved question"
+    ],
+    "known_scope_risks": [
+      "The seed set is heterogeneous and not a same-task benchmark family.",
+      "LoRA is relevant as a model-adaptation anchor but is not natively a direct agent-systems paper in the same sense as the other two."
+    ],
+    "seed_paper_rationale": [
+      "LoRA anchors the model-adaptation layer.",
+      "OpenClaw-RL anchors the agent training and interaction-learning layer.",
+      "Towards a Science of Scaling Agent Systems anchors the system-scaling and evaluation layer."
+    ]
+  },
+  "paper_set": {
+    "papers": [
+      {
+        "paper_id": "lora-2021",
+        "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+        "authors": [
+          "Edward Hu",
+          "Yelong Shen",
+          "Phillip Wallis",
+          "Zeyuan Allen-Zhu",
+          "Yuanzhi Li",
+          "Shean Wang",
+          "Lu Wang",
+          "Weizhu Chen"
+        ],
+        "coverage_state": "full_layer1",
+        "inclusion_reason": "Included as a model-adaptation anchor relevant to how agent-oriented systems can change behavior efficiently.",
+        "layer1_artifacts_available": [
+          "quick-pass.json",
+          "method-card.json",
+          "experiment-card.json",
+          "claim-evidence-table.json",
+          "limitations-card.json",
+          "repro-notes.json",
+          "critical-read-notes.json",
+          "project-relevance.json",
+          "paper-card.json",
+          "paper-card.md"
+        ],
+        "comparison_readiness_note": "Ready for grounded intervention-level and claim-aware comparison as a Layer 1-complete model-adaptation anchor."
+      },
+      {
+        "paper_id": "openclaw-rl-2026",
+        "title": "OpenClaw-RL: Train Any Agent Simply by Talking",
+        "authors": [
+          "Yinjie Wang",
+          "Xuyang Chen",
+          "Xiaolong Jin",
+          "Mengdi Wang",
+          "Ling Yang"
+        ],
+        "coverage_state": "full_layer1",
+        "inclusion_reason": "Included as an agent-training anchor centered on next-state signals and RL for personal and general agents.",
+        "layer1_artifacts_available": [
+          "quick-pass.json",
+          "method-card.json",
+          "experiment-card.json",
+          "claim-evidence-table.json",
+          "limitations-card.json",
+          "repro-notes.json",
+          "critical-read-notes.json",
+          "project-relevance.json",
+          "paper-card.json",
+          "paper-card.md"
+        ],
+        "comparison_readiness_note": "Ready for grounded comparison on training-layer claims, evidence style, and online learning assumptions."
+      },
+      {
+        "paper_id": "scaling-agent-systems-2025",
+        "title": "Towards a Science of Scaling Agent Systems",
+        "authors": [
+          "Yubin Kim",
+          "Ken Gu",
+          "Chanwoo Park",
+          "Chunjong Park",
+          "Samuel Schmidgall",
+          "A. Ali Heydari",
+          "Yao Yan",
+          "Zhihan Zhang",
+          "Yuchen Zhuang",
+          "Yun Liu",
+          "Mark Malhotra",
+          "Paul Pu Liang",
+          "Hae Won Park",
+          "Yuzhe Yang",
+          "Xuhai Xu",
+          "Yilun Du",
+          "Shwetak Patel",
+          "Tim Althoff",
+          "Daniel McDuff",
+          "Xin Liu"
+        ],
+        "coverage_state": "full_layer1",
+        "inclusion_reason": "Included as a system-level scaling and evaluation anchor for agent architectures and coordination trade-offs.",
+        "layer1_artifacts_available": [
+          "quick-pass.json",
+          "method-card.json",
+          "experiment-card.json",
+          "claim-evidence-table.json",
+          "limitations-card.json",
+          "repro-notes.json",
+          "critical-read-notes.json",
+          "project-relevance.json",
+          "paper-card.json",
+          "paper-card.md"
+        ],
+        "comparison_readiness_note": "Ready for grounded comparison on system-level evidence, scaling principles, and coordination trade-offs."
+      }
+    ],
+    "coverage_summary": [
+      "Total papers: 3",
+      "seed_only: 0",
+      "partial_layer1: 0",
+      "full_layer1: 3",
+      "This example is now backed by full Layer 1 artifact sets for all three papers."
+    ],
+    "missing_layer1_artifacts": [],
+    "papers_needing_deeper_read": []
+  },
+  "comparison_matrix": {
+    "comparison_axes": [
+      "level of intervention",
+      "primary objective",
+      "evidence type",
+      "agent scope",
+      "major limitation or unresolved question"
+    ],
+    "paper_ids": [
+      "lora-2021",
+      "openclaw-rl-2026",
+      "scaling-agent-systems-2025"
+    ],
+    "cells": [
+      {
+        "paper_id": "lora-2021",
+        "axis": "level of intervention",
+        "summary": "Model-adaptation layer via low-rank parameter updates on frozen pretrained weights.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "openclaw-rl-2026",
+        "axis": "level of intervention",
+        "summary": "Agent-training layer via next-state-driven RL and on-policy distillation from live interaction streams.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "scaling-agent-systems-2025",
+        "axis": "level of intervention",
+        "summary": "System-scaling and evaluation layer via controlled comparison of single-agent and multi-agent coordination topologies.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "lora-2021",
+        "axis": "primary objective",
+        "summary": "Adapt large models efficiently while preserving downstream task quality and minimizing trainable parameters, memory cost, and latency overhead.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "openclaw-rl-2026",
+        "axis": "primary objective",
+        "summary": "Turn next-state feedback into a live online learning source for personal and general agents.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "scaling-agent-systems-2025",
+        "axis": "primary objective",
+        "summary": "Derive predictive rules for when different agent-system architectures help or hurt on agentic tasks.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "lora-2021",
+        "axis": "evidence type",
+        "summary": "Method proposal backed by benchmark tables on adaptation quality, parameter count, latency, and large-model efficiency observations.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "openclaw-rl-2026",
+        "axis": "evidence type",
+        "summary": "Agent-training framework backed by personal-agent and general-agent experiments, plus algorithm and prompt appendices.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "scaling-agent-systems-2025",
+        "axis": "evidence type",
+        "summary": "Controlled architecture study backed by multi-benchmark experiments, coordination metrics, and a predictive mixed-effects model.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "lora-2021",
+        "axis": "agent scope",
+        "summary": "Indirectly relevant to agent systems through the base-model adaptation layer rather than through end-to-end agent behavior.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "openclaw-rl-2026",
+        "axis": "agent scope",
+        "summary": "Directly targets personal agents and general-purpose agents across terminal, GUI, SWE, and tool-call settings.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "scaling-agent-systems-2025",
+        "axis": "agent scope",
+        "summary": "Directly compares single-agent and multi-agent systems across several coordination architectures and task domains.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "lora-2021",
+        "axis": "major limitation or unresolved question",
+        "summary": "Does not address online interaction learning or multi-agent coordination, so its relevance to agent systems is important but indirect.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "openclaw-rl-2026",
+        "axis": "major limitation or unresolved question",
+        "summary": "Framework generality is promising but broader universality claims still outrun the currently reported settings and judge stack.",
+        "coverage_note": "full_layer1 coverage"
+      },
+      {
+        "paper_id": "scaling-agent-systems-2025",
+        "axis": "major limitation or unresolved question",
+        "summary": "Offers strong architecture-selection evidence, but the resulting principles remain bounded by the benchmark suite, architecture set, and metric design.",
+        "coverage_note": "full_layer1 coverage"
+      }
+    ],
+    "coverage_warnings": [
+      "The set is heterogeneous and still should not be used for direct winner/loser benchmarking across the three papers.",
+      "All three papers now have full Layer 1 artifacts, so comparison can move from seed-level topic mapping to grounded layer-aware synthesis."
+    ],
+    "comparison_limits": [
+      "Cross-paper comparison is strongest at the level of intervention layers, evidence styles, and unresolved questions rather than same-task superiority.",
+      "LoRA remains indirectly relevant to agent systems compared with the other two papers, so symmetry of scope should not be overstated."
+    ]
+  },
+  "taxonomy": [
+    {
+      "name": "Model adaptation",
+      "grouping_rationale": "Changes the underlying model efficiently before or alongside downstream use.",
+      "paper_ids": [
+        "lora-2021"
+      ]
+    },
+    {
+      "name": "Agent learning from interaction",
+      "grouping_rationale": "Improves deployed agents online using next-state signals from interaction traces.",
+      "paper_ids": [
+        "openclaw-rl-2026"
+      ]
+    },
+    {
+      "name": "System scaling and coordination evaluation",
+      "grouping_rationale": "Studies when different coordination structures improve or degrade agent-system performance.",
+      "paper_ids": [
+        "scaling-agent-systems-2025"
+      ]
+    }
+  ],
+  "evidence_patterns": [
+    {
+      "pattern": "Each paper supports a different layer of the stack with a different evidence style: adaptation benchmarking, online learning experiments, and controlled architecture evaluation.",
+      "paper_ids": [
+        "lora-2021",
+        "openclaw-rl-2026",
+        "scaling-agent-systems-2025"
+      ],
+      "coverage_note": "full_layer1 coverage across all three papers"
+    },
+    {
+      "pattern": "The strongest cross-paper synthesis is not about a single best method, but about what becomes visible when intervention shifts from model weights to live interaction learning to coordination structure.",
+      "paper_ids": [
+        "lora-2021",
+        "openclaw-rl-2026",
+        "scaling-agent-systems-2025"
+      ],
+      "coverage_note": "grounded in full_layer1 artifact comparison"
+    }
+  ],
+  "gaps_and_disagreements": [
+    {
+      "issue": "The three papers expose complementary but non-substitutable layers of improvement: efficient adaptation, online agent learning, and system-level coordination science.",
+      "paper_ids": [
+        "lora-2021",
+        "openclaw-rl-2026",
+        "scaling-agent-systems-2025"
+      ],
+      "why_it_matters": "A team choosing only one layer may miss bottlenecks that appear at another layer of the stack."
+    },
+    {
+      "issue": "LoRA offers strong practical efficiency for model adaptation, but it does not answer whether deployed agents learn from interaction or whether multi-agent coordination is worthwhile.",
+      "paper_ids": [
+        "lora-2021",
+        "openclaw-rl-2026",
+        "scaling-agent-systems-2025"
+      ],
+      "why_it_matters": "This prevents overgeneralizing model-layer gains into agent- or system-level conclusions."
+    },
+    {
+      "issue": "OpenClaw-RL argues that next-state signals can train many agents online, while the scaling paper shows that adding coordination structure often creates overhead and can degrade performance on some tasks.",
+      "paper_ids": [
+        "openclaw-rl-2026",
+        "scaling-agent-systems-2025"
+      ],
+      "why_it_matters": "Online training and multi-agent scaling are not the same intervention; a stronger training loop does not automatically justify more coordinated agents."
+    }
+  ],
+  "recommended_reading_order": [
+    {
+      "paper_id": "lora-2021",
+      "order_rationale": "Start at the model layer to establish what efficient adaptation can and cannot solve.",
+      "coverage_state": "full_layer1"
+    },
+    {
+      "paper_id": "openclaw-rl-2026",
+      "order_rationale": "Then move to the agent-training layer to see how deployed systems can improve from interaction signals beyond offline adaptation.",
+      "coverage_state": "full_layer1"
+    },
+    {
+      "paper_id": "scaling-agent-systems-2025",
+      "order_rationale": "Finish at the system layer to evaluate when coordination structure itself helps or hurts after model and training choices are fixed.",
+      "coverage_state": "full_layer1"
+    }
+  ],
+  "review_limits": [
+    "This remains a heterogeneous three-paper set, not a same-task benchmark family.",
+    "LoRA is included as a model-adaptation anchor relevant to agent systems, not as a direct online-agent or coordination paper.",
+    "The synthesis is now grounded by full Layer 1 artifacts for all three papers, but cross-paper superiority claims still remain structurally limited."
+  ],
+  "next_actions": [
+    "Add one or two neighboring papers around each layer if you want denser within-layer comparison.",
+    "Use the current three-paper set as a worked example of stack-level intervention analysis rather than leaderboard comparison.",
+    "Extend the review with a paper that explicitly links adaptation and online agent learning if you want a bridge between LoRA and OpenClaw-RL."
+  ]
+}

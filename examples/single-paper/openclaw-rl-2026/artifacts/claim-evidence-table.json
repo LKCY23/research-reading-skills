@@ -1,0 +1,74 @@
+[
+  {
+    "claim_id": "C1",
+    "claim_text": "Next-state signals can serve as a live online learning source across heterogeneous agent interaction types.",
+    "claim_type": "methodological",
+    "stated_by_authors": true,
+    "evidence_type": "textual_argument",
+    "evidence_location": "p1; p3-p6",
+    "evidence_summary": "The paper defines next-state signals across personal conversations, terminal, GUI, SWE, and tool-call settings and shows how each can be routed into the same training loop through a unified MDP framing and infrastructure.",
+    "support_strength": "strong",
+    "support_strength_reason": "This is the central framework claim and is supported directly by the formalization, infrastructure description, and per-setting table.",
+    "reviewer_note": "The claim is about framework design and supported coverage, not necessarily uniform empirical effectiveness in every possible deployment."
+  },
+  {
+    "claim_id": "C2",
+    "claim_text": "Directive next-state signals contain information that scalar rewards alone cannot express and can be exploited with OPD.",
+    "claim_type": "methodological",
+    "stated_by_authors": true,
+    "evidence_type": "textual_argument",
+    "evidence_location": "p7-p8, Section 4.2; p9, Table 2",
+    "evidence_summary": "The paper explicitly contrasts Binary RL and OPD, showing that OPD uses extracted hints and token-level advantage rather than only scalar evaluative rewards.",
+    "support_strength": "strong",
+    "support_strength_reason": "The claim follows directly from the method definition and table-level comparison of signal types and supervision granularity.",
+    "reviewer_note": "This is a structural claim about available supervision signal, not itself a broad performance guarantee."
+  },
+  {
+    "claim_id": "C3",
+    "claim_text": "Combining Binary RL and OPD yields stronger personal-agent optimization than either method alone.",
+    "claim_type": "performance",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p11, Table 3",
+    "evidence_summary": "Table 3 shows the combined method scoring well above Binary RL and OPD alone in the student setting after both 8 and 16 update steps, and the paper highlights this as the most effective optimization pattern.",
+    "support_strength": "strong",
+    "support_strength_reason": "The table directly compares the three training variants and the combined method is clearly best in the shown setting.",
+    "reviewer_note": "Supported within the personal-agent setup shown."
+  },
+  {
+    "claim_id": "C4",
+    "claim_text": "OpenClaw-RL supports scalable RL across terminal, GUI, SWE, and tool-call settings.",
+    "claim_type": "empirical",
+    "stated_by_authors": true,
+    "evidence_type": "figure",
+    "evidence_location": "p12, Figure 4; p10-p12",
+    "evidence_summary": "Figure 4 plots positive learning curves across terminal, GUI, SWE, and tool-call settings, and the setup sections specify models, datasets, and rollout details for these domains.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The figure and setup sections show the framework functioning across multiple settings, but the evidence mainly demonstrates viability and positive trends rather than a comprehensive cross-system superiority result.",
+    "reviewer_note": "Good support for multi-setting applicability, weaker for broader claims of general-purpose dominance."
+  },
+  {
+    "claim_id": "C5",
+    "claim_text": "Integrating outcome and process rewards improves over outcome-only optimization for long-horizon agentic tasks.",
+    "claim_type": "performance",
+    "stated_by_authors": true,
+    "evidence_type": "table",
+    "evidence_location": "p12, Table 4; p9 Section 4.4",
+    "evidence_summary": "Table 4 reports higher scores for integrated rewards than for outcome-only training in tool-call and GUI settings, and the surrounding text interprets this as evidence that process rewards are useful for long-horizon tasks.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The reported table does show a consistent improvement in the shown settings, though the evidence is still limited to a small set of task types and values.",
+    "reviewer_note": "Supports the claim directionally and practically within the reported experiments."
+  },
+  {
+    "claim_id": "C6",
+    "claim_text": "A fully decoupled asynchronous RL infrastructure can support online agent training without interrupting serving.",
+    "claim_type": "methodological",
+    "stated_by_authors": true,
+    "evidence_type": "observation",
+    "evidence_location": "p1 Figure 1; p5 Section 3.1; p18 Appendix A",
+    "evidence_summary": "The infrastructure diagram, system description, and pseudocode all show policy serving, reward judging, and training operating as separate loops with trainer-queue submission after next-state processing.",
+    "support_strength": "moderate",
+    "support_strength_reason": "The architecture is clearly specified and internally coherent, but the visible pages provide more design detail than end-to-end systems benchmarking of interruption-free serving under production load.",
+    "reviewer_note": "Strong as an architectural claim; less directly benchmarked as an ops-level systems claim."
+  }
+]

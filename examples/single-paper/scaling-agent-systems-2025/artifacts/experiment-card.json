@@ -1,0 +1,56 @@
+{
+  "datasets_or_benchmarks": [
+    "BrowseComp-Plus",
+    "Finance-Agent",
+    "PlanCraft",
+    "Workbench"
+  ],
+  "evaluation_metrics": [
+    "task success or accuracy by benchmark",
+    "coordination overhead",
+    "message density",
+    "redundancy rate",
+    "coordination efficiency",
+    "error amplification",
+    "cross-validated model R-squared"
+  ],
+  "baselines": [
+    "Single-Agent System (SAS)",
+    "MAS Independent",
+    "MAS Centralized",
+    "MAS Decentralized",
+    "MAS Hybrid",
+    "simpler predictive models using architecture labels or intelligence only"
+  ],
+  "main_results": [
+    {
+      "result": "Multi-agent benefits are highly task-dependent: Finance-Agent shows strong positive MAS gains, while PlanCraft degrades under all tested MAS variants.",
+      "locator": "p11 Figure 2; p13-p14"
+    },
+    {
+      "result": "The mixed-effects scaling model achieves cross-validated R-squared of 0.524 and outperforms simpler predictive models using only architecture labels or intelligence.",
+      "locator": "p15; p19 Table 3; p20 Table 4"
+    },
+    {
+      "result": "The efficiency-tools interaction is identified as the strongest second-largest effect, showing that tool-heavy tasks suffer disproportionate cost from coordination overhead.",
+      "locator": "p17"
+    },
+    {
+      "result": "Overhead scales non-linearly with task complexity, and hybrid architecture can be heavily penalized on tool-heavy tasks because coordination cost compounds with complexity.",
+      "locator": "p18"
+    },
+    {
+      "result": "Coordination metrics differ sharply by architecture: MAS variants require many more turns and incur much higher overhead than SAS, with Independent showing the highest error amplification in Table 5.",
+      "locator": "p20 Table 5"
+    }
+  ],
+  "ablations": [
+    "The paper performs a structural ablation over five coordination architectures rather than a narrow parameter ablation.",
+    "Table 3 compares the full scaling-principle model to simpler model specifications with fewer predictor groups."
+  ],
+  "sensitivity_studies": [
+    "The paper discusses sensitivity analyses showing qualitatively similar results under alternative specifications for the predictive model.",
+    "It examines interactions across task domains and model families rather than only pooled average outcomes."
+  ],
+  "result_interpretation": "The study supports a strong negative result against naive multi-agent heuristics: coordination is not universally beneficial. Its more constructive result is that measurable task and coordination properties predict when different architectures help. The main value is therefore less a single leaderboard result and more an interpretable rule set for architecture choice."
+}

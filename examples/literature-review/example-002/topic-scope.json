@@ -1,0 +1,29 @@
+{
+  "topic": "Adaptation, training, and scaling choices relevant to agent systems",
+  "research_question": "How do papers relevant to agent-oriented AI systems intervene at different levels of the stack—model adaptation, policy learning from interaction, and system-level scaling—and what does each level make visible or leave unresolved?",
+  "scope_summary": "This review uses a heterogeneous three-paper seed set to compare intervention levels relevant to agent-oriented AI systems rather than to rank directly benchmark-comparable methods.",
+  "inclusion_criteria": [
+    "Include seed papers that represent distinct intervention layers relevant to agent-oriented AI systems.",
+    "Keep papers that help compare model adaptation, agent learning from interaction, and system-level scaling/evaluation."
+  ],
+  "exclusion_criteria": [
+    "Exclude claims of direct empirical superiority across the entire seed set.",
+    "Exclude benchmark-style winner/loser conclusions unless the papers are directly comparable on the same task."
+  ],
+  "initial_comparison_axes": [
+    "level of intervention",
+    "primary objective",
+    "evidence type",
+    "agent scope",
+    "major limitation or unresolved question"
+  ],
+  "known_scope_risks": [
+    "The seed set is heterogeneous and not a same-task benchmark family.",
+    "LoRA is relevant as a model-adaptation anchor but is not natively a direct agent-systems paper in the same sense as the other two."
+  ],
+  "seed_paper_rationale": [
+    "LoRA anchors the model-adaptation layer.",
+    "OpenClaw-RL anchors the agent training and interaction-learning layer.",
+    "Towards a Science of Scaling Agent Systems anchors the system-scaling and evaluation layer."
+  ]
+}

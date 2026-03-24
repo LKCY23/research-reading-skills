@@ -1,0 +1,30 @@
+{
+  "required_assets": [
+    "A pretrained Transformer model such as RoBERTa, DeBERTa, GPT-2, or GPT-3-class model.",
+    "Downstream task training data for the target adaptation benchmark.",
+    "An implementation path for inserting LoRA matrices into selected Transformer weight matrices.",
+    "Training infrastructure capable of freezing base weights and optimizing only the low-rank matrices.",
+    "Evaluation scripts for GLUE, E2E NLG, or comparable downstream tasks."
+  ],
+  "missing_details": [
+    "The visible pages do not include the full appendix-level hyperparameter details for every experiment and model setting.",
+    "Exact engineering details for the GPT-3 175B memory and throughput setup are only partially visible from the current pages.",
+    "A full sweep over alternative matrix-placement strategies is not visible from the current coverage."
+  ],
+  "high_risk_ambiguities": [
+    "Performance may depend materially on which matrices receive LoRA updates and on the selected rank r.",
+    "Large-model reproduction will be highly sensitive to distributed training configuration and optimizer-state accounting.",
+    "Replicating the no-latency deployment story depends on whether weights are actually merged before inference or switched dynamically across tasks."
+  ],
+  "first_replication_checks": [
+    "Verify that freezing the backbone and training only A and B reproduces the expected trainable-parameter counts.",
+    "Confirm that the merged-weight deployment path produces the same outputs as the explicit low-rank branch at inference time.",
+    "Reproduce one medium-scale benchmark first, such as a GLUE or GPT-2 E2E setting, before attempting GPT-3-scale runs.",
+    "Check how results change with different ranks and matrix placements to confirm the visible scaling trends."
+  ],
+  "expected_failure_points": [
+    "Incorrect weight injection points or shape handling in attention projections can silently break the method.",
+    "Large-scale memory/throughput reproduction may fail if optimizer-state savings and frozen-parameter handling are not implemented correctly.",
+    "Baseline mismatch can distort comparisons if adapter or prefix baselines are not reproduced under comparable settings."
+  ]
+}

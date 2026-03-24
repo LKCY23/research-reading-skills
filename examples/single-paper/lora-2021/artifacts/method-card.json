@@ -1,0 +1,37 @@
+{
+  "task_definition": "Adapt a large pretrained language model to a downstream task while minimizing the number of trainable parameters, memory usage, and deployment overhead.",
+  "input_output_form": "Input: a pretrained language model plus downstream task training pairs. Output: a task-adapted model represented by frozen base weights together with small low-rank trainable update matrices attached to selected weight matrices.",
+  "core_components": [
+    {
+      "name": "Frozen pretrained backbone",
+      "role": "Keep the original model weights fixed so adaptation does not require updating or storing a full new copy of the model.",
+      "locator": "p1-p2, Introduction and Problem Statement"
+    },
+    {
+      "name": "Low-rank update parameterization",
+      "role": "Represent the task-specific update as BA with rank r much smaller than the original matrix dimensions.",
+      "locator": "p4, Section 4.1"
+    },
+    {
+      "name": "Selective matrix adaptation",
+      "role": "Apply LoRA to chosen Transformer weight matrices, mainly attention projections, to reduce trainable parameters while preserving effectiveness.",
+      "locator": "p4-p5, Section 4.2"
+    },
+    {
+      "name": "Merge-at-deployment step",
+      "role": "Combine the low-rank update into the base weights for inference so the deployed model avoids extra latency.",
+      "locator": "p4, No Additional Inference Latency; p5"
+    }
+  ],
+  "training_or_optimization_setup": "LoRA does not introduce a new pretraining procedure. It keeps pretrained weights frozen and trains only the injected low-rank matrices with standard optimizers such as Adam on downstream tasks. In most Transformer experiments, LoRA is applied only to attention weights such as Wq and Wv for simplicity and parameter efficiency.",
+  "key_assumptions": [
+    "Task-specific parameter updates lie in a low intrinsic-rank subspace.",
+    "Adapting a subset of strategically chosen weight matrices is sufficient for strong downstream performance.",
+    "Merging the learned update into the base weights preserves the inference graph needed to avoid latency overhead."
+  ],
+  "novel_elements": [
+    "Parameterizing model adaptation as trainable low-rank update matrices on frozen pretrained weights.",
+    "Showing that very small trainable parameter counts can remain competitive with full fine-tuning even at GPT-3 175B scale.",
+    "Providing a deployment-friendly formulation that can avoid additional inference latency by weight merging."
+  ]
+}

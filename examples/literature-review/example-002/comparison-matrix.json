@@ -1,0 +1,114 @@
+{
+  "comparison_axes": [
+    "level of intervention",
+    "primary objective",
+    "evidence type",
+    "agent scope",
+    "major limitation or unresolved question"
+  ],
+  "paper_ids": [
+    "lora-2021",
+    "openclaw-rl-2026",
+    "scaling-agent-systems-2025"
+  ],
+  "cells": [
+    {
+      "paper_id": "lora-2021",
+      "axis": "level of intervention",
+      "summary": "Model-adaptation layer via low-rank parameter updates on frozen pretrained weights.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "openclaw-rl-2026",
+      "axis": "level of intervention",
+      "summary": "Agent-training layer via next-state-driven RL and on-policy distillation from live interaction streams.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "scaling-agent-systems-2025",
+      "axis": "level of intervention",
+      "summary": "System-scaling and evaluation layer via controlled comparison of single-agent and multi-agent coordination topologies.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "lora-2021",
+      "axis": "primary objective",
+      "summary": "Adapt large models efficiently while preserving downstream task quality and minimizing trainable parameters, memory cost, and latency overhead.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "openclaw-rl-2026",
+      "axis": "primary objective",
+      "summary": "Turn next-state feedback into a live online learning source for personal and general agents.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "scaling-agent-systems-2025",
+      "axis": "primary objective",
+      "summary": "Derive predictive rules for when different agent-system architectures help or hurt on agentic tasks.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "lora-2021",
+      "axis": "evidence type",
+      "summary": "Method proposal backed by benchmark tables on adaptation quality, parameter count, latency, and large-model efficiency observations.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "openclaw-rl-2026",
+      "axis": "evidence type",
+      "summary": "Agent-training framework backed by personal-agent and general-agent experiments, plus algorithm and prompt appendices.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "scaling-agent-systems-2025",
+      "axis": "evidence type",
+      "summary": "Controlled architecture study backed by multi-benchmark experiments, coordination metrics, and a predictive mixed-effects model.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "lora-2021",
+      "axis": "agent scope",
+      "summary": "Indirectly relevant to agent systems through the base-model adaptation layer rather than through end-to-end agent behavior.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "openclaw-rl-2026",
+      "axis": "agent scope",
+      "summary": "Directly targets personal agents and general-purpose agents across terminal, GUI, SWE, and tool-call settings.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "scaling-agent-systems-2025",
+      "axis": "agent scope",
+      "summary": "Directly compares single-agent and multi-agent systems across several coordination architectures and task domains.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "lora-2021",
+      "axis": "major limitation or unresolved question",
+      "summary": "Does not address online interaction learning or multi-agent coordination, so its relevance to agent systems is important but indirect.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "openclaw-rl-2026",
+      "axis": "major limitation or unresolved question",
+      "summary": "Framework generality is promising but broader universality claims still outrun the currently reported settings and judge stack.",
+      "coverage_note": "full_layer1 coverage"
+    },
+    {
+      "paper_id": "scaling-agent-systems-2025",
+      "axis": "major limitation or unresolved question",
+      "summary": "Offers strong architecture-selection evidence, but the resulting principles remain bounded by the benchmark suite, architecture set, and metric design.",
+      "coverage_note": "full_layer1 coverage"
+    }
+  ],
+  "coverage_warnings": [
+    "The set is heterogeneous and still should not be used for direct winner/loser benchmarking across the three papers.",
+    "All three papers now have full Layer 1 artifacts, so comparison can move from seed-level topic mapping to grounded layer-aware synthesis."
+  ],
+  "comparison_limits": [
+    "Cross-paper comparison is strongest at the level of intervention layers, evidence styles, and unresolved questions rather than same-task superiority.",
+    "LoRA remains indirectly relevant to agent systems compared with the other two papers, so symmetry of scope should not be overstated."
+  ]
+}
