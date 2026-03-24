@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LiteratureReview",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "metadata",
+    "topic_scope",
+    "paper_set",
+    "comparison_matrix",
+    "taxonomy",
+    "evidence_patterns",
+    "gaps_and_disagreements",
+    "recommended_reading_order",
+    "review_limits",
+    "next_actions"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["topic", "research_question", "created_from", "review_timestamp"],
+      "properties": {
+        "topic": {
+          "type": "string"
+        },
+        "research_question": {
+          "type": "string"
+        },
+        "created_from": {
+          "type": "string"
+        },
+        "review_timestamp": {
+          "type": "string"
+        }
+      }
+    },
+    "topic_scope": {
+      "$ref": "./topic-scope.schema.json"
+    },
+    "paper_set": {
+      "$ref": "./paper-set.schema.json"
+    },
+    "comparison_matrix": {
+      "$ref": "./comparison-matrix.schema.json"
+    },
+    "taxonomy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "grouping_rationale", "paper_ids"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "grouping_rationale": {
+            "type": "string"
+          },
+          "paper_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "evidence_patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["pattern", "paper_ids", "coverage_note"],
+        "properties": {
+          "pattern": {
+            "type": "string"
+          },
+          "paper_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage_note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "gaps_and_disagreements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["issue", "paper_ids", "why_it_matters"],
+        "properties": {
+          "issue": {
+            "type": "string"
+          },
+          "paper_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "why_it_matters": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "recommended_reading_order": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["paper_id", "order_rationale", "coverage_state"],
+        "properties": {
+          "paper_id": {
+            "type": "string"
+          },
+          "order_rationale": {
+            "type": "string"
+          },
+          "coverage_state": {
+            "type": "string",
+            "enum": ["seed_only", "partial_layer1", "full_layer1"]
+          }
+        }
+      }
+    },
+    "review_limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

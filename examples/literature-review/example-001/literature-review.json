@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "topic": "Example topic scaffold",
+    "research_question": "What should a minimal Layer 2 topic scaffold capture before a full review exists?",
+    "created_from": "example-001 scaffold",
+    "review_timestamp": "2026-03-23T00:00:00Z"
+  },
+  "topic_scope": {
+    "topic": "Example topic scaffold",
+    "research_question": "What should a minimal Layer 2 topic scaffold capture before a full review exists?",
+    "scope_summary": "This placeholder keeps the review narrowly focused on demonstrating file structure and visible uncertainty.",
+    "inclusion_criteria": [
+      "Include seed papers that define the topic boundary for the scaffold"
+    ],
+    "exclusion_criteria": [
+      "Exclude detailed claims that would require a completed review"
+    ],
+    "initial_comparison_axes": [
+      "paper role in the scaffold"
+    ],
+    "known_scope_risks": [
+      "Coverage is intentionally incomplete in this scaffold"
+    ],
+    "seed_paper_rationale": [
+      "Use one seed paper placeholder to anchor the minimal file set"
+    ]
+  },
+  "paper_set": {
+    "papers": [
+      {
+        "paper_id": "seed-paper-001",
+        "title": "Placeholder seed paper",
+        "authors": [
+          "Example Author"
+        ],
+        "coverage_state": "seed_only",
+        "inclusion_reason": "Included only to anchor the scaffold example",
+        "layer1_artifacts_available": [],
+        "comparison_readiness_note": "Not ready for evidence-backed comparison beyond seed metadata"
+      }
+    ],
+    "coverage_summary": [
+      "Total papers: 1",
+      "seed_only: 1",
+      "partial_layer1: 0",
+      "full_layer1: 0",
+      "This scaffold intentionally shows only seed-level coverage."
+    ],
+    "missing_layer1_artifacts": [
+      "seed-paper-001 has no Layer 1 paper_card artifacts yet"
+    ],
+    "papers_needing_deeper_read": [
+      "seed-paper-001"
+    ]
+  },
+  "comparison_matrix": {
+    "comparison_axes": [
+      "paper role in the scaffold"
+    ],
+    "paper_ids": [
+      "seed-paper-001"
+    ],
+    "cells": [
+      {
+        "paper_id": "seed-paper-001",
+        "axis": "paper role in the scaffold",
+        "summary": "Seed placeholder only; no detailed comparison claim is made.",
+        "coverage_note": "seed_only coverage"
+      }
+    ],
+    "coverage_warnings": [
+      "Comparison remains scaffold-level because the only paper is seed_only."
+    ],
+    "comparison_limits": [
+      "Do not treat this example as a completed cross-paper comparison."
+    ]
+  },
+  "taxonomy": [
+    {
+      "name": "Scaffold-only grouping",
+      "grouping_rationale": "Groups the single placeholder paper used to anchor the example.",
+      "paper_ids": [
+        "seed-paper-001"
+      ]
+    }
+  ],
+  "evidence_patterns": [
+    {
+      "pattern": "Visible uncertainty is preserved instead of filled in.",
+      "paper_ids": [
+        "seed-paper-001"
+      ],
+      "coverage_note": "Pattern is scaffold-level and not based on a full Layer 1 read."
+    }
+  ],
+  "gaps_and_disagreements": [
+    {
+      "issue": "No grounded cross-paper synthesis is available yet.",
+      "paper_ids": [
+        "seed-paper-001"
+      ],
+      "why_it_matters": "A real literature review needs additional papers and deeper Layer 1 coverage."
+    }
+  ],
+  "recommended_reading_order": [
+    {
+      "paper_id": "seed-paper-001",
+      "order_rationale": "Read the seed paper first because it is the only current anchor.",
+      "coverage_state": "seed_only"
+    }
+  ],
+  "review_limits": [
+    "This example is intentionally scaffold-level and not a completed literature review.",
+    "Coverage is limited to a single seed_only paper with no Layer 1 artifacts."
+  ],
+  "next_actions": [
+    "Add real Layer 1 artifacts before making evidence-backed comparisons.",
+    "Expand the paper set once the topic boundary is tested on real inputs."
+  ]
+}

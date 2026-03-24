@@ -15,18 +15,20 @@ This first validation layer covers:
 
 It does **not** yet include full schema-conformance validation or a complete automated runner.
 
-## Current quasi-golden baseline
+## Current quasi-golden baselines
 
 `examples/single-paper/example-001/` is the current Layer 1 quasi-golden baseline.
 
-For now, it is the main reference example for checking:
+`examples/literature-review/example-001/` is the current Layer 2 quasi-golden baseline.
+
+For now, these are the main reference examples for checking:
 - schema shape consistency
 - field naming consistency
 - artifact completeness
-- claim/evidence review quality
+- review quality
 - markdown rendering quality
 
-Future examples can be added later, but `example-001` is the current anchor.
+Future examples can be added later, but the current `example-001` directories are the main anchors.
 
 ## Validation layers
 
@@ -43,7 +45,7 @@ Purpose:
 ### `tests/golden/`
 Purpose:
 - define what counts as a stable expected output shape for important examples
-- start with `example-001` as the baseline Layer 1 reference
+- start with `example-001` as the baseline Layer 1 and Layer 2 references
 
 ### `tests/bin/`
 Purpose:
@@ -56,14 +58,14 @@ Run:
 ```bash
 bash tests/bin/validate-json.sh
 bash tests/bin/check-example-001-completeness.sh
+bash tests/bin/check-literature-review-example-001-completeness.sh
 ```
 
 ## Review priority
 
 The highest-value early checks remain:
-- `claim-evidence-table.json`
-- `limitations-card.json`
-- `repro-notes.json`
-- `critical-read-notes.json`
-
-These files are the best early indicators that the repository is producing structured, grounded reading outputs rather than fluent but weak summaries.
+- Layer 1 claim/evidence quality and critique outputs
+- Layer 2 scope clarity
+- Layer 2 coverage-state honesty
+- Layer 2 comparison usefulness
+- visible missing evidence in scaffold reviews

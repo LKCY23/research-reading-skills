@@ -1,0 +1,20 @@
+{
+  "topic": "Example topic scaffold",
+  "research_question": "What should a minimal Layer 2 topic scaffold capture before a full review exists?",
+  "scope_summary": "This placeholder keeps the review narrowly focused on demonstrating file structure and visible uncertainty.",
+  "inclusion_criteria": [
+    "Include seed papers that define the topic boundary for the scaffold"
+  ],
+  "exclusion_criteria": [
+    "Exclude detailed claims that would require a completed review"
+  ],
+  "initial_comparison_axes": [
+    "paper role in the scaffold"
+  ],
+  "known_scope_risks": [
+    "Coverage is intentionally incomplete in this scaffold"
+  ],
+  "seed_paper_rationale": [
+    "Use one seed paper placeholder to anchor the minimal file set"
+  ]
+}

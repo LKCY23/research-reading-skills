@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ComparisonMatrix",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "comparison_axes",
+    "paper_ids",
+    "cells",
+    "coverage_warnings",
+    "comparison_limits"
+  ],
+  "properties": {
+    "comparison_axes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "paper_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paper_id",
+          "axis",
+          "summary",
+          "coverage_note"
+        ],
+        "properties": {
+          "paper_id": {
+            "type": "string"
+          },
+          "axis": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "coverage_note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "coverage_warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "comparison_limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
