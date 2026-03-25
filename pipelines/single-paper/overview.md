@@ -69,6 +69,24 @@ After the pass outputs are produced, they should be assembled into:
 The JSON artifact is the durable structured record.
 The markdown artifact is the human-readable rendering.
 
+## Canonical persistence and reuse
+
+For reusable execution state, the repository should persist canonical Layer 1 records under:
+- `library/single-paper/<paper-slug>/`
+
+That library layer is the repository-side persistence surface for future duplicate detection and reuse.
+
+Before starting a new read, a future executor should:
+- normalize the incoming paper identity
+- search `library/single-paper/` for existing records
+- classify matches as `exact`, `probable`, or `none`
+- decide whether to reuse artifacts, rerun selected passes, or reread from scratch
+
+The detailed matching and reuse contract is defined in:
+- `pipelines/single-paper/library-identity-and-reuse.md`
+
+`examples/single-paper/` remains useful for curated examples and review anchors, but it should not be treated as the canonical persistence layer for future `/read-paper` executions.
+
 ## Current scope
 
 This pipeline directory is intentionally documentation-first in v1.

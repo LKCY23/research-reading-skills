@@ -1,0 +1,17 @@
+{
+  "relevance_to_current_topic": "Highly relevant as the agent-training anchor in the three-paper review because it focuses on learning from interaction rather than offline model adaptation or system-level architecture selection.",
+  "reusable_ideas": [
+    "Use it as the canonical example of next-state-based agent learning.",
+    "Use it as a strong Layer 1 example for separating evaluative evidence from directive supervision in claim extraction.",
+    "Use it to contrast online improvement infrastructure with LoRA-style offline adaptation and scaling-law-style system evaluation."
+  ],
+  "parts_to_ignore": [
+    "Do not overread the title's broadness as proving universal effectiveness across all agent stacks and environments.",
+    "Do not treat the personal-agent simulations as identical to large-scale real-user deployment evidence."
+  ],
+  "what_to_read_next": [
+    "Related RL-for-agents systems such as RLAnything, CURE, or ReTool cited in the paper.",
+    "Work on process reward models and trajectory-aware PRMs for longer-horizon agent supervision.",
+    "Papers on online self-distillation and hindsight relabeling that help contextualize OPD."
+  ]
+}

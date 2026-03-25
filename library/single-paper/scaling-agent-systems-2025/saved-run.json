@@ -1,0 +1,21 @@
+{
+  "paper_id": "scaling-agent-systems-2025",
+  "saved_at": "2026-03-25T05:00:36Z",
+  "saved_from": "library/single-paper/scaling-agent-systems-2025",
+  "library_path": "library/single-paper/scaling-agent-systems-2025",
+  "artifact_files": [
+    "input-metadata.json",
+    "source-excerpts.md",
+    "artifacts/quick-pass.json",
+    "artifacts/method-card.json",
+    "artifacts/experiment-card.json",
+    "artifacts/claim-evidence-table.json",
+    "artifacts/limitations-card.json",
+    "artifacts/repro-notes.json",
+    "artifacts/critical-read-notes.json",
+    "artifacts/project-relevance.json",
+    "artifacts/uncertainty-summary.json",
+    "artifacts/paper-card.json",
+    "artifacts/paper-card.md"
+  ]
+}

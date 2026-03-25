@@ -1,0 +1,18 @@
+{
+  "title": "OpenClaw-RL: Train Any Agent Simply by Talking",
+  "authors": [
+    "Yinjie Wang",
+    "Xuyang Chen",
+    "Xiaolong Jin",
+    "Mengdi Wang",
+    "Ling Yang"
+  ],
+  "venue": "arXiv",
+  "year": 2026,
+  "doi_or_url": "https://arxiv.org/abs/2603.10165v1",
+  "source_type": "pdf",
+  "parsed_from": "local-pdf:/Users/liyao/Desktop/schedule/OpenClaw-RL- Train Any Agent Simply by Talking.pdf",
+  "ingestion_timestamp": "2026-03-24T00:00:00Z",
+  "arxiv_id": "2603.10165",
+  "version": "v1"
+}

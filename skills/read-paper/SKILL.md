@@ -133,6 +133,18 @@ Recommended sections:
 - Reproduction notes
 - Why this paper matters for the current topic/project
 
+## Reuse and duplicate-detection expectations
+
+Before a future `/read-paper` execution starts a fresh run, it should check whether the repository already contains the paper under `library/single-paper/`.
+
+Repository-side expectations:
+- canonical reusable records live under `library/single-paper/`
+- duplicate detection should use normalized paper identity rather than only directory names
+- if a record already exists, the workflow should support reuse of existing artifacts, rerunning selected passes, or rereading from scratch
+
+The detailed repository-side contract is documented in:
+- `pipelines/single-paper/library-identity-and-reuse.md`
+
 ## Schema and prompt usage
 
 This skill should orchestrate the existing pass prompts and schemas.

@@ -17,6 +17,7 @@ required_files=(
   "$ARTIFACTS_DIR/repro-notes.json"
   "$ARTIFACTS_DIR/critical-read-notes.json"
   "$ARTIFACTS_DIR/project-relevance.json"
+  "$ARTIFACTS_DIR/uncertainty-summary.json"
   "$ARTIFACTS_DIR/paper-card.json"
   "$ARTIFACTS_DIR/paper-card.md"
 )

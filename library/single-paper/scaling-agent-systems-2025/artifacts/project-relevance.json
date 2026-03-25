@@ -1,0 +1,17 @@
+{
+  "relevance_to_current_topic": "Highly relevant as the system-level scaling and coordination anchor in the three-paper review because it addresses when multi-agent structure helps or hurts, which neither LoRA nor OpenClaw-RL answers directly.",
+  "reusable_ideas": [
+    "Use it as the canonical system-level paper for architecture-selection and coordination trade-off analysis.",
+    "Use it as a strong claim-evidence example for fitting a predictive model from interpretable operational metrics.",
+    "Use it to frame the distinction between model adaptation, online policy improvement, and coordination architecture as different intervention layers."
+  ],
+  "parts_to_ignore": [
+    "Do not treat the reported scaling principles as timeless universal laws detached from the paper's benchmark and architecture choices.",
+    "Do not collapse its system-level findings into claims about parameter-efficient adaptation or online RL training infrastructure, which are outside its main scope."
+  ],
+  "what_to_read_next": [
+    "Follow-up work on agent benchmark design and coordination evaluation.",
+    "Papers on specific multi-agent failure modes, orchestration mechanisms, and communication topologies cited in the related work.",
+    "Agent-training papers and adaptation papers that operate at different layers of the stack for complementary comparison."
+  ]
+}

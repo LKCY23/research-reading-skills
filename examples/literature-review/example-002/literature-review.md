@@ -16,9 +16,9 @@ This example is intentionally topic-first and heterogeneous.
 It compares intervention layers, evidence styles, and unresolved questions rather than ranking methods on a shared benchmark.
 
 ### Included papers
-- `lora-2021` — model adaptation anchor
-- `openclaw-rl-2026` — agent training anchor
-- `scaling-agent-systems-2025` — system scaling and evaluation anchor
+- `library/single-paper/lora-2021/` — model adaptation anchor
+- `library/single-paper/openclaw-rl-2026/` — agent training anchor
+- `library/single-paper/scaling-agent-systems-2025/` — system scaling and evaluation anchor
 
 ### Scope risks
 - The seed set is heterogeneous and not a same-task benchmark family.

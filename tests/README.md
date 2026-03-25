@@ -19,6 +19,9 @@ It does **not** yet include full schema-conformance validation or a complete aut
 
 `examples/single-paper/example-001/` is the current Layer 1 quasi-golden baseline.
 
+Canonical reusable Layer 1 paper records now live under `library/single-paper/`.
+Those library records are distinct from the example baseline used for validation.
+
 `examples/literature-review/example-001/` is the current Layer 2 quasi-golden baseline.
 
 For now, these are the main reference examples for checking:
@@ -59,6 +62,7 @@ Run:
 bash tests/bin/validate-json.sh
 bash tests/bin/check-example-001-completeness.sh
 bash tests/bin/check-literature-review-example-001-completeness.sh
+bash tests/bin/check-single-paper-library-completeness.sh
 ```
 
 ## Review priority

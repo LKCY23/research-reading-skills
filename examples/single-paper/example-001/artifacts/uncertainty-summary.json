@@ -1,0 +1,5 @@
+[
+  "This example is grounded in the paper\u2019s text, figures, and tables, but not every implementation detail needed for exact reproduction is present in the paper.",
+  "The strongest accuracy-improvement claims over the base models are well supported within the benchmark slice used; broader generalization is not established.",
+  "Claims about outperforming reasoning-native systems and about energy efficiency are directionally supported but should be interpreted with more caution than the headline framing suggests."
+]

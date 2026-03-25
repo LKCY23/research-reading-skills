@@ -1,17 +1,14 @@
-# Single-paper example placeholder
+# Single-paper examples
 
-This directory will hold worked examples for the Layer 1 `read-paper` workflow.
+This directory holds curated examples, scaffolds, and review anchors for the Layer 1 `read-paper` workflow.
 
-Planned example contents:
-- example input metadata
-- selected source chunks or paper excerpts
-- expected `quick_pass`
-- expected `claim_evidence_table`
-- expected critique/repro outputs
-- human-readable markdown rendering
+It is intentionally distinct from `library/single-paper/`:
+- `examples/single-paper/` holds canonical examples for repository review and testing.
+- `library/single-paper/` holds reusable paper records and their full artifact sets.
 
-The first golden examples should prioritize:
-- `claim_evidence_table`
-- `limitations_card`
-- `repro_notes`
-- `critical_read_notes`
+Current contents here should stay example-oriented:
+- scaffold examples such as `example-001/`
+- reviewable, stable example layouts
+- future golden or quasi-golden anchors
+
+Real reusable paper artifact sets should live under `library/single-paper/`.

@@ -139,6 +139,7 @@ That means:
 - the **schema** defines stable outputs
 - the **templates** shape readable notes
 - the **examples** serve testing and review
+- the **library** serves canonical reusable paper records
 
 ### Recommended internal model
 
@@ -171,6 +172,8 @@ paper-read-skills/
   pipelines/
     single-paper/
     literature-review/
+  library/
+    single-paper/
   examples/
   tests/
 ```
@@ -212,6 +215,9 @@ Expected responsibilities:
 - `repro_notes`
 - `critical_read_notes`
 - `project_relevance`
+
+Canonical reusable Layer 1 records should be stored under `library/single-paper/`.
+Curated review and testing anchors can remain under `examples/single-paper/`.
 
 ### Literature-review artifacts
 - `topic_scope` → persisted as `topic-scope.json`

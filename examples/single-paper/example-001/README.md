@@ -1,10 +1,13 @@
-# Example 001: Single-paper workflow skeleton
+# Example 001: Single-paper workflow scaffold
 
-This directory is a semi-realistic skeleton for a Layer 1 single-paper example.
+This directory is a scaffold-level Layer 1 example.
 
 ## Purpose
 
-It shows how one worked example should be organized without requiring the repository to include a fully completed real-paper artifact set yet.
+It shows the expected file layout, naming conventions, and review surface for a single-paper run without pretending to be a canonical reusable paper record.
+
+Canonical reusable paper records now live under `library/single-paper/`.
+This example remains in `examples/` because it is meant for repository review, testing, and structure checks.
 
 ## Planned files
 

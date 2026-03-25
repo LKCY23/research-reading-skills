@@ -15,9 +15,11 @@ How do papers relevant to agent-oriented AI systems intervene at different level
 
 ## Seed papers
 
-- `lora-2021` — *LoRA: Low-Rank Adaptation of Large Language Models*
-- `openclaw-rl-2026` — *OpenClaw-RL: Train Any Agent Simply by Talking*
-- `scaling-agent-systems-2025` — *Towards a Science of Scaling Agent Systems*
+These Layer 2 outputs are backed by canonical Layer 1 library records:
+
+- `library/single-paper/lora-2021/` — *LoRA: Low-Rank Adaptation of Large Language Models*
+- `library/single-paper/openclaw-rl-2026/` — *OpenClaw-RL: Train Any Agent Simply by Talking*
+- `library/single-paper/scaling-agent-systems-2025/` — *Towards a Science of Scaling Agent Systems*
 
 ## Why this example exists
 

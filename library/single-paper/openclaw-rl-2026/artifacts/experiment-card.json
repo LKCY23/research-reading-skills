@@ -1,0 +1,52 @@
+{
+  "datasets_or_benchmarks": [
+    "GSM8K-derived homework simulation for student and teacher personal-agent settings",
+    "SETA RL data for terminal agents",
+    "OSWorld-Verified for GUI agents",
+    "SWE-Bench-Verified for SWE agents",
+    "DAPO RL data for tool-call agents",
+    "AIME 2024 for tool-call evaluation mentioned in the setup"
+  ],
+  "evaluation_metrics": [
+    "personalization score in the personal-agent track",
+    "average rollout-task accuracy for terminal and SWE agents",
+    "setting-specific accuracy for GUI and tool-call agents"
+  ],
+  "baselines": [
+    "Binary RL",
+    "OPD",
+    "Combined Binary RL + OPD",
+    "outcome-only reward optimization"
+  ],
+  "main_results": [
+    {
+      "result": "In the personal-agent track, the combined method substantially outperforms Binary RL and OPD alone after 8 and 16 update steps.",
+      "locator": "p11, Table 3"
+    },
+    {
+      "result": "The paper reports that OpenClaw can achieve visibly improved personalization in the student and teacher settings after dozens of interactions rather than requiring a separate offline data-collection phase.",
+      "locator": "p11, Takeaways Q1 and Q2; Figure 2"
+    },
+    {
+      "result": "The framework supports scalable RL across terminal, GUI, SWE, and tool-call settings, with accuracy curves shown for each domain.",
+      "locator": "p12, Figure 4"
+    },
+    {
+      "result": "Integrating outcome and process rewards improves over outcome-only optimization in tool-call and GUI settings in the reported table.",
+      "locator": "p12, Table 4"
+    },
+    {
+      "result": "The paper argues that the same infrastructure can scale from personal single-user deployment to cloud-hosted large-scale general-agent RL.",
+      "locator": "p6 Section 3.3; p12"
+    }
+  ],
+  "ablations": [
+    "A direct method comparison is provided among Binary RL, OPD, and Combined training in the personal-agent track.",
+    "General-agent experiments compare integrated process-plus-outcome rewards against outcome-only optimization."
+  ],
+  "sensitivity_studies": [
+    "The paper discusses when OPD is beneficial: settings with rich directive content rather than merely evaluative feedback.",
+    "Hyperparameter differences across GUI, SWE, terminal, and tool-call settings are exposed in Appendix D."
+  ],
+  "result_interpretation": "The visible evidence supports the claim that next-state signals are useful training signals and that combining coarse evaluative reward with richer directive supervision is often better than using either alone. The strongest support is for framework viability and positive learning trends, while broader claims about generality beyond the reported stack should still be read cautiously."
+}

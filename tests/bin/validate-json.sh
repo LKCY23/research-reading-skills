@@ -26,8 +26,16 @@ json_files=(
   "$ROOT/examples/single-paper/example-001/artifacts/repro-notes.json"
   "$ROOT/examples/single-paper/example-001/artifacts/critical-read-notes.json"
   "$ROOT/examples/single-paper/example-001/artifacts/project-relevance.json"
+  "$ROOT/examples/single-paper/example-001/artifacts/uncertainty-summary.json"
   "$ROOT/examples/single-paper/example-001/artifacts/paper-card.json"
 )
+
+layer1_library_dir="$ROOT/library/single-paper"
+if [[ -d "$layer1_library_dir" ]]; then
+  while IFS= read -r file; do
+    json_files+=("$file")
+  done < <(find "$layer1_library_dir" -type f \( -name '*.json' \) | sort)
+fi
 
 layer2_example_dir="$ROOT/examples/literature-review/example-001"
 if [[ -d "$layer2_example_dir" ]]; then

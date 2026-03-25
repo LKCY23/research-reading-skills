@@ -1,0 +1,17 @@
+{
+  "author_stated_limitations": [
+    "OPD only trains on turns where the next state carries a clear extractable hint, so it deliberately drops many samples.",
+    "The paper notes that OPD takes longer to show its effect because of sparse training samples in the personal-agent setting.",
+    "Hosting a PRM for process rewards requires additional resources compared with outcome-only optimization."
+  ],
+  "inferred_limitations": [
+    "The framework depends heavily on the quality of judge prompts and next-state formatting, which may vary substantially across deployments.",
+    "Some reported gains come from simulated or benchmarked settings rather than uncontrolled real-user deployment at scale.",
+    "The paper argues broad universality, but the empirical evidence is still concentrated in a specific stack of models, judges, and environments."
+  ],
+  "threats_to_validity": [
+    "Performance may be sensitive to how next-state signals are segmented into evaluative versus directive cases.",
+    "The same-model teacher construction in OPD may inherit policy biases rather than providing an independent supervision signal.",
+    "General-agent results rely on task-specific datasets and rollout regimes that may not fully capture real production usage."
+  ]
+}

@@ -15,6 +15,8 @@ The first concrete validation targets are:
 - `examples/single-paper/example-001/`
 - `examples/literature-review/example-001/`
 
+Canonical reusable paper records under `library/single-paper/` are a separate persistence surface and are not the current schema-validation baseline.
+
 Priority files:
 - Layer 1 aggregate and sub-artifacts under `examples/single-paper/example-001/artifacts/`
 - Layer 2 `topic-scope.json`
