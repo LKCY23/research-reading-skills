@@ -1,3 +1,8 @@
+---
+name: read-paper
+description: Use when reading a single research paper in a structured way to extract claims, evidence, methods, limitations, and critique.
+---
+
 # read-paper
 
 A flow-oriented skill for reading a single research paper with structured outputs and a human-readable summary.

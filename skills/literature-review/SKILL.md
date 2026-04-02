@@ -1,3 +1,8 @@
+---
+name: literature-review
+description: Use when conducting a topic-first literature review across multiple papers, comparing methods, evidence, and coverage for a research question.
+---
+
 # literature-review
 
 A flow-oriented skill for topic-first multi-paper review with structured outputs and a human-readable synthesis.
